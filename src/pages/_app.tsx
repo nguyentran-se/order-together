@@ -1,12 +1,19 @@
 import Layout from "layout";
 import "globals";
 import type { AppProps } from "next/app";
+import { Provider } from "react-redux";
+import store from "store";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <ChakraProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
+    </Provider>
   );
 }
 
