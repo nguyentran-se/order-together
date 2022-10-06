@@ -4,10 +4,12 @@ import { Status } from "@types";
 interface AuthState {
   isLoggedIn: boolean;
   status: Status;
+  userProfile: any;
 }
 const initialState: AuthState = {
   isLoggedIn: false,
   status: Status.IDLE,
+  userProfile: {}
 };
 const authSlice = createSlice({
   name: "auth",
@@ -24,8 +26,12 @@ const authSlice = createSlice({
       state.status = Status.REJECTED;
       state.isLoggedIn = false;
     },
+    obtainToken: (state, {payload}) => {
+      state.userProfile = payload; 
+    }
   },
 });
 
-export const { loginRequest, loginSucceed, loginFailed } = authSlice.actions;
+
+export const { loginRequest, loginSucceed, loginFailed, obtainToken, } = authSlice.actions;
 export default authSlice.reducer;
