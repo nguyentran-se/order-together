@@ -5,11 +5,13 @@ interface AuthState {
   isLoggedIn: boolean;
   status: Status;
   userProfile: any;
+  error: any;
 }
 const initialState: AuthState = {
   isLoggedIn: false,
   status: Status.IDLE,
-  userProfile: {}
+  userProfile: {},
+  error: null,
 };
 const authSlice = createSlice({
   name: "auth",
@@ -18,20 +20,19 @@ const authSlice = createSlice({
     loginRequest: (state) => {
       state.status = Status.PENDING;
     },
-    loginSucceed: (state) => {
-      state.isLoggedIn = true;
+    loginSucceed: (state, action: PayloadAction<any>) => {
       state.status = Status.RESOLVED;
+      state.isLoggedIn = true;
+      state.userProfile = action.payload;
+      state.error = null;
     },
-    loginFailed: (state) => {
+    loginFailed: (state, action: PayloadAction<any>) => {
       state.status = Status.REJECTED;
       state.isLoggedIn = false;
+      state.error = action.payload;
     },
-    obtainToken: (state, {payload}) => {
-      state.userProfile = payload; 
-    }
   },
 });
 
-
-export const { loginRequest, loginSucceed, loginFailed, obtainToken, } = authSlice.actions;
+export const { loginRequest, loginSucceed, loginFailed } = authSlice.actions;
 export default authSlice.reducer;
