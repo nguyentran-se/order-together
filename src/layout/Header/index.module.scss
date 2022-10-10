@@ -1,0 +1,47 @@
+$background-color: #6482c0;
+
+.nav {
+  top: 0;
+  left: 0;
+  position: fixed;
+  font-size: 20px;
+  height: 70px;
+  width: 100%;
+  // background-color: rgb(168, 115, 230);
+  // background-color: rgba($background-color, 0.6);
+}
+
+.nav ul {
+  float: right;
+  padding: 0;
+  color: white;
+  margin: 0;
+  list-style: none;
+}
+
+.nav ul li {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 70px;
+  padding: 0 30px;
+  text-align: center;
+  width: 20%;
+  min-width: 200px;
+}
+
+.nav ul li:hover {
+  cursor: pointer;
+  background-color: rgb(121, 33, 221);
+}
+
+.btn-login {
+  margin: 11px;
+  float: right;
+}
+
+.btn-login > button {
+  font-size: 18px;
+  border: #6482c0 solid 5px;
+  height: 50px;
+  width: 250px;
+}
