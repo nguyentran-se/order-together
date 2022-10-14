@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background: #EDF2F7;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -23,4 +24,31 @@ a {
     color: red;
     background: black;
   }
+}
+
+
+@font-face {
+  font-family: 'Thunder';
+  src: url('../../assets/fonts/Thunder-BlackLC.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Thunder';
+  src: url('../../assets/fonts/Thunder-BlackLCItalic.ttf');
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Thunder';
+  src: url('../../assets/fonts/Thunder-BoldLC.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Thunder';
+  src: url('../../assets/fonts/Thunder-BoldLCItalic.ttf');
+  font-weight: 600;
+  font-style: italic;
 }

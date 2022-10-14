@@ -1,3 +1,4 @@
+import { Flex } from "@chakra-ui/react";
 import Head from "next/head";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -7,14 +8,11 @@ type LayoutProps = {
 function Layout({ children }: LayoutProps) {
   return (
     <>
-      <Head>
-        <title>Order Together | Home</title>
-        <meta name="description" content="Order Together" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <Flex>
+        <Header />
+        <main style={{'width': '100%'}}>{children}</main>
+        {/* <Footer /> */}
+      </Flex>
     </>
   );
 }

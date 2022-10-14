@@ -1,12 +1,16 @@
-$background-color: #6482c0;
+.Navbar {
+  
+}
 
 
-.nav {
+.Nav {
   color: black;
   top: 0;
   left: 0;
+  // justify-content: space-between;
   position: fixed;  
   font-size: 16px;
+  // height: 130px;
   width: 100%;
   // background-color: rgb(168, 115, 230);
   // background-color: rgba($background-color, 0.6);
@@ -66,14 +70,14 @@ $background-color: #6482c0;
   }
 }
 
-.nav ul {
+.Nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
   padding-right: 40px;
 }
 
-.nav ul li {
+.Nav ul li {
   font-weight: 600;
   display: inline-block;
   margin: auto 10px auto 0;
@@ -83,7 +87,7 @@ $background-color: #6482c0;
   
 }
 
-.nav ul li:hover {
+.Nav ul li:hover {
   cursor: pointer;
   border-bottom: 2px solid;
 }
