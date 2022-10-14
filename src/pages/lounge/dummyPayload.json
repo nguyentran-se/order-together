@@ -1,0 +1,1359 @@
+{
+  "entities": {
+    "5-C3E3WAAAERLXRN": {
+      "ID": "5-C3E3WAAAERLXRN",
+      "name": "Cơm Tấm- Cơm Sườn Nướng Lâm Thúy",
+      "cuisine": "Cơm",
+      "photoHref": "https://d1sag4ddilekf6.azureedge.net/compressed/merchants/5-C3E3WAAAERLXRN/hero/faf0a01711a749baa882d8c28f5ba7fd_1665351929800510871.jpg",
+      "timeZone": "Asia/Ho_Chi_Minh",
+      "ETA": 60,
+      "description": "",
+      "openingHours": {
+        "open": true,
+        "displayedHours": "10:00-14:00 16:45-20:00",
+        "sun": "Closed",
+        "mon": "10:00-14:00 16:45-20:00",
+        "tue": "10:00-14:00 16:45-20:00",
+        "wed": "10:00-14:00 16:45-20:00",
+        "thu": "10:00-14:00 16:45-20:00",
+        "fri": "10:00-14:00 16:45-20:00",
+        "sat": "10:00-14:00 16:45-20:00",
+        "tempClosed": false
+      },
+      "isIntegrated": true,
+      "phoneNumber": "",
+      "distanceInKm": 608.323,
+      "section": "VNSEC20220416093003010161",
+      "sectionOpenHours": {
+        "open": true,
+        "displayedHours": "12:00 AM - 11:59 PM",
+        "sun": "00:00-23:59",
+        "mon": "00:00-23:59",
+        "tue": "00:00-23:59",
+        "wed": "00:00-23:59",
+        "thu": "00:00-23:59",
+        "fri": "00:00-23:59",
+        "sat": "00:00-23:59"
+      },
+      "latlng": {
+        "latitude": 16.05915676340544,
+        "longitude": 108.234660997293
+      },
+      "address": {
+        "acronym": "",
+        "combinedAddress": "",
+        "combinedCity": "",
+        "house": "",
+        "street": "",
+        "suburb": "",
+        "postcode": "",
+        "city": "",
+        "cityID": 0,
+        "state": "",
+        "country": "",
+        "countryID": 0
+      },
+      "menu": {
+        "categories": [
+          {
+            "name": "Ưu đãi hôm nay",
+            "available": true,
+            "items": [
+              {
+                "ID": "VNITE20220720081804209061",
+                "name": "Combo 2 cơm sườn nướng + 1 cơm ba chỉ nướng",
+                "available": true,
+                "priceInMinorUnit": 110000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220720081804209061/photo/6773a695ceab4f18b4cbc007ce6f2945_1658305084919369196.png",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220720081804209061/detail/6773a695ceab4f18b4cbc007ce6f2945_1658305084919369196.webp"
+                ],
+                "description": "Nhập code FREESHIP45, freeship tới 5km",
+                "modifierGroups": [],
+                "sortOrder": 9999,
+                "campaignID": "5-C3E3WAAAERLXRN-C3VTRNCVGN4EPE-24379405",
+                "campaignName": "Giảm 11.000₫",
+                "discountedPriceInMin": 99000,
+                "priceV2": {
+                  "amountInMinor": 110000,
+                  "amountDisplay": "110.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 99000,
+                  "amountDisplay": "99.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 1
+              },
+              {
+                "ID": "VNITE20220512075232263277",
+                "name": "Cơm Tấm Sườn",
+                "available": true,
+                "priceInMinorUnit": 40000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220512075232263277/photo/5c7f5f32b0f34968be544705c3871762_1652341952914248560.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220512075232263277/detail/5c7f5f32b0f34968be544705c3871762_1652341952914248560.webp"
+                ],
+                "description": "Tặng Cơm Tấm Sườn khi mua combo 2 món",
+                "modifierGroups": [
+                  {
+                    "ID": "VNMOG20220512075231225570",
+                    "name": "Chọn Món",
+                    "available": true,
+                    "selectionType": 1,
+                    "selectionRangeMin": 2,
+                    "selectionRangeMax": 2,
+                    "modifiers": [
+                      {
+                        "ID": "VNMOD20220512075231519086",
+                        "name": "Cơm Sườn + Chả",
+                        "available": true,
+                        "priceInMinorUnit": 45000,
+                        "sortOrder": 2,
+                        "priceV2": {
+                          "amountInMinor": 45000,
+                          "amountDisplay": "45.000"
+                        },
+                        "_currency": {
+                          "code": "VND",
+                          "symbol": "₫",
+                          "exponent": 0,
+                          "ISOSymbol": ""
+                        }
+                      },
+                      {
+                        "ID": "VNMOD20220512075231523721",
+                        "name": "Cơm Sườn + Trứng Ốp La",
+                        "available": true,
+                        "priceInMinorUnit": 45000,
+                        "sortOrder": 1,
+                        "priceV2": {
+                          "amountInMinor": 45000,
+                          "amountDisplay": "45.000"
+                        },
+                        "_currency": {
+                          "code": "VND",
+                          "symbol": "₫",
+                          "exponent": 0,
+                          "ISOSymbol": ""
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "sortOrder": 9999,
+                "campaignID": "5-C3E3WAAAERLXRN-C3VUJ2TYNYMBA6-83687255",
+                "campaignName": "Giảm 100%",
+                "discountedPriceInMin": 0,
+                "priceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 0,
+                  "amountDisplay": "0"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 2
+              },
+              {
+                "ID": "VNITE20220928115015020411",
+                "name": "Cơm ốp la + chả trứng",
+                "available": true,
+                "priceInMinorUnit": 25000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220928115015020411/photo/0c4961868b7f41d287680b7ed9dc2773_1664365815313395812.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220928115015020411/detail/0c4961868b7f41d287680b7ed9dc2773_1664365815313395812.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9125,
+                "campaignID": "5-C3E3WAAAERLXRN-C3VTR2M2L3V2CT-31595956",
+                "campaignName": "Giảm 5.000₫",
+                "discountedPriceInMin": 20000,
+                "priceV2": {
+                  "amountInMinor": 25000,
+                  "amountDisplay": "25.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 20000,
+                  "amountDisplay": "20.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 3
+              }
+            ],
+            "sortOrder": 10001
+          },
+          {
+            "ID": "VNCAT20220928115015013604",
+            "name": "Cơm no đủ 20K",
+            "available": true,
+            "items": [
+              {
+                "ID": "VNITE20220928115015020411",
+                "name": "Cơm ốp la + chả trứng",
+                "available": true,
+                "priceInMinorUnit": 25000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220928115015020411/photo/0c4961868b7f41d287680b7ed9dc2773_1664365815313395812.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220928115015020411/detail/0c4961868b7f41d287680b7ed9dc2773_1664365815313395812.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9125,
+                "campaignID": "5-C3E3WAAAERLXRN-C3VTR2M2L3V2CT-31595956",
+                "campaignName": "Giảm 5.000₫",
+                "discountedPriceInMin": 20000,
+                "priceV2": {
+                  "amountInMinor": 25000,
+                  "amountDisplay": "25.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 20000,
+                  "amountDisplay": "20.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 4
+              }
+            ],
+            "sortOrder": 10000
+          },
+          {
+            "ID": "VNCAT20220720081804093452",
+            "name": "Đại tiệc gia đình 99K",
+            "available": true,
+            "items": [
+              {
+                "ID": "VNITE20220720081804209061",
+                "name": "Combo 2 cơm sườn nướng + 1 cơm ba chỉ nướng",
+                "available": true,
+                "priceInMinorUnit": 110000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220720081804209061/photo/6773a695ceab4f18b4cbc007ce6f2945_1658305084919369196.png",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220720081804209061/detail/6773a695ceab4f18b4cbc007ce6f2945_1658305084919369196.webp"
+                ],
+                "description": "Nhập code FREESHIP45, freeship tới 5km",
+                "modifierGroups": [],
+                "sortOrder": 9999,
+                "campaignID": "5-C3E3WAAAERLXRN-C3VTRNCVGN4EPE-24379405",
+                "campaignName": "Giảm 11.000₫",
+                "discountedPriceInMin": 99000,
+                "priceV2": {
+                  "amountInMinor": 110000,
+                  "amountDisplay": "110.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 99000,
+                  "amountDisplay": "99.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 5
+              }
+            ],
+            "sortOrder": 10000
+          },
+          {
+            "ID": "VNCAT20220512075232193373",
+            "name": "Deal Đậm - Mua 2 Tặng 1",
+            "available": true,
+            "items": [
+              {
+                "ID": "VNITE20220512075232263277",
+                "name": "Cơm Tấm Sườn",
+                "available": true,
+                "priceInMinorUnit": 40000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220512075232263277/photo/5c7f5f32b0f34968be544705c3871762_1652341952914248560.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220512075232263277/detail/5c7f5f32b0f34968be544705c3871762_1652341952914248560.webp"
+                ],
+                "description": "Tặng Cơm Tấm Sườn khi mua combo 2 món",
+                "modifierGroups": [
+                  {
+                    "ID": "VNMOG20220512075231225570",
+                    "name": "Chọn Món",
+                    "available": true,
+                    "selectionType": 1,
+                    "selectionRangeMin": 2,
+                    "selectionRangeMax": 2,
+                    "modifiers": [
+                      {
+                        "ID": "VNMOD20220512075231519086",
+                        "name": "Cơm Sườn + Chả",
+                        "available": true,
+                        "priceInMinorUnit": 45000,
+                        "sortOrder": 2,
+                        "priceV2": {
+                          "amountInMinor": 45000,
+                          "amountDisplay": "45.000"
+                        },
+                        "_currency": {
+                          "code": "VND",
+                          "symbol": "₫",
+                          "exponent": 0,
+                          "ISOSymbol": ""
+                        }
+                      },
+                      {
+                        "ID": "VNMOD20220512075231523721",
+                        "name": "Cơm Sườn + Trứng Ốp La",
+                        "available": true,
+                        "priceInMinorUnit": 45000,
+                        "sortOrder": 1,
+                        "priceV2": {
+                          "amountInMinor": 45000,
+                          "amountDisplay": "45.000"
+                        },
+                        "_currency": {
+                          "code": "VND",
+                          "symbol": "₫",
+                          "exponent": 0,
+                          "ISOSymbol": ""
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "sortOrder": 9999,
+                "campaignID": "5-C3E3WAAAERLXRN-C3VUJ2TYNYMBA6-83687255",
+                "campaignName": "Giảm 100%",
+                "discountedPriceInMin": 0,
+                "priceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 0,
+                  "amountDisplay": "0"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 6
+              }
+            ],
+            "sortOrder": 10000
+          },
+          {
+            "ID": "VNCAT20220416093004068783",
+            "name": "Thức Uống",
+            "available": true,
+            "items": [
+              {
+                "ID": "VNITE20220416093004341362",
+                "name": "Nước suối",
+                "available": true,
+                "priceInMinorUnit": 8000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093004341362/photo/menueditor_item_cbdc3ec48c8848fbbf4d33aabc3aac67_1650126160029457204.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093004341362/detail/menueditor_item_cbdc3ec48c8848fbbf4d33aabc3aac67_1650126160029457204.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9985,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 8000,
+                "priceV2": {
+                  "amountInMinor": 8000,
+                  "amountDisplay": "8.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 8000,
+                  "amountDisplay": "8.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 7
+              },
+              {
+                "ID": "VNITE20220416093004416283",
+                "name": "Coca",
+                "available": true,
+                "priceInMinorUnit": 15000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093004416283/photo/menueditor_item_cdd661200e544b3abff21fdc239dca26_1650125797186670405.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093004416283/detail/menueditor_item_cdd661200e544b3abff21fdc239dca26_1650125797186670405.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9984,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 15000,
+                "priceV2": {
+                  "amountInMinor": 15000,
+                  "amountDisplay": "15.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 15000,
+                  "amountDisplay": "15.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 8
+              },
+              {
+                "ID": "VNITE20220416093004481430",
+                "name": "Pepsi",
+                "available": true,
+                "priceInMinorUnit": 15000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093004481430/photo/menueditor_item_28d48d55a0c64955a9d28a0c761277ed_1650125821837426759.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093004481430/detail/menueditor_item_28d48d55a0c64955a9d28a0c761277ed_1650125821837426759.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9983,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 15000,
+                "priceV2": {
+                  "amountInMinor": 15000,
+                  "amountDisplay": "15.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 15000,
+                  "amountDisplay": "15.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 9
+              },
+              {
+                "ID": "VNITE20220416093004559361",
+                "name": "7 Up",
+                "available": true,
+                "priceInMinorUnit": 15000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093004559361/photo/menueditor_item_061bc5a9a63b4174b0c8c35259eb7036_1650125848650777784.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093004559361/detail/menueditor_item_061bc5a9a63b4174b0c8c35259eb7036_1650125848650777784.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9982,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 15000,
+                "priceV2": {
+                  "amountInMinor": 15000,
+                  "amountDisplay": "15.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 15000,
+                  "amountDisplay": "15.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 10
+              },
+              {
+                "ID": "VNITE20220416093004717048",
+                "name": "Nước khoáng lạt",
+                "available": true,
+                "priceInMinorUnit": 10000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093004717048/photo/menueditor_item_2eb93b2db29f40c9ac269882e30e9575_1650126186105262555.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093004717048/detail/menueditor_item_2eb93b2db29f40c9ac269882e30e9575_1650126186105262555.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9980,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 10000,
+                "priceV2": {
+                  "amountInMinor": 10000,
+                  "amountDisplay": "10.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 10000,
+                  "amountDisplay": "10.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 11
+              },
+              {
+                "ID": "VNITE20220416093005054922",
+                "name": "Khoáng ngọt",
+                "available": true,
+                "priceInMinorUnit": 12000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093005054922/photo/menueditor_item_69f0c0446c4644fead3ab0c262bc6885_1650125915016994831.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093005054922/detail/menueditor_item_69f0c0446c4644fead3ab0c262bc6885_1650125915016994831.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9979,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 12000,
+                "priceV2": {
+                  "amountInMinor": 12000,
+                  "amountDisplay": "12.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 12000,
+                  "amountDisplay": "12.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 12
+              }
+            ],
+            "sortOrder": 10000
+          },
+          {
+            "ID": "VNCAT20220416093003014193",
+            "name": "Cơm",
+            "available": true,
+            "items": [
+              {
+                "ID": "VNITE2022070704140185873",
+                "name": "Cơm Tấm Ốp La + Chả Trứng",
+                "available": true,
+                "priceInMinorUnit": 25000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022070704140185873/photo/menueditor_item_0b3a8e9486f34f319cb56b277497cdc7_1657167195053972799.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022070704140185873/detail/menueditor_item_0b3a8e9486f34f319cb56b277497cdc7_1657167195053972799.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10009,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 25000,
+                "priceV2": {
+                  "amountInMinor": 25000,
+                  "amountDisplay": "25.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 25000,
+                  "amountDisplay": "25.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 13
+              },
+              {
+                "ID": "VNITE2022051908110678201",
+                "name": "Cơm Tấm Ba Chỉ Nướng + Ốp La",
+                "available": true,
+                "priceInMinorUnit": 40000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022051908110678201/photo/menueditor_item_d2a8a6e1bf114255be41b2c494a9c4e7_1652947808572092107.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022051908110678201/detail/menueditor_item_d2a8a6e1bf114255be41b2c494a9c4e7_1652947808572092107.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10008,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 40000,
+                "priceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 14
+              },
+              {
+                "ID": "VNITE2022051908080031689",
+                "name": "Cơm Tấm Ba Chỉ Nướng + Chả Trứng ",
+                "available": true,
+                "priceInMinorUnit": 40000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022051908080031689/photo/menueditor_item_43c65ef1a8bf47f182973f1c294092de_1652947649288378876.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022051908080031689/detail/menueditor_item_43c65ef1a8bf47f182973f1c294092de_1652947649288378876.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10006,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 40000,
+                "priceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 15
+              },
+              {
+                "ID": "VNITE2022051908070413906",
+                "name": "Cơm Tấm Sườn + Chả Trứng + Ốp La",
+                "available": true,
+                "priceInMinorUnit": 48000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022051908070413906/photo/menueditor_item_900174d4a045469ebad2898e63248b28_1652947589773023686.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022051908070413906/detail/menueditor_item_900174d4a045469ebad2898e63248b28_1652947589773023686.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10005,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 48000,
+                "priceV2": {
+                  "amountInMinor": 48000,
+                  "amountDisplay": "48.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 48000,
+                  "amountDisplay": "48.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 16
+              },
+              {
+                "ID": "VNITE2022051908013836550",
+                "name": "Cơm Tấm Ba Chỉ + Chả Trứng + Ốp La",
+                "available": true,
+                "priceInMinorUnit": 48000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022051908013836550/photo/menueditor_item_c9500e0ba80f410282ae7ac7ad3bcb9a_1652947250994939661.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022051908013836550/detail/menueditor_item_c9500e0ba80f410282ae7ac7ad3bcb9a_1652947250994939661.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10004,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 48000,
+                "priceV2": {
+                  "amountInMinor": 48000,
+                  "amountDisplay": "48.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 48000,
+                  "amountDisplay": "48.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 17
+              },
+              {
+                "ID": "VNITE2022042203190577436",
+                "name": "Cơm Thêm ",
+                "available": true,
+                "priceInMinorUnit": 5000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022042203190577436/photo/menueditor_item_a8ea38ca5d4949f5b6979fa5f13cf1f2_1650597528618354801.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022042203190577436/detail/menueditor_item_a8ea38ca5d4949f5b6979fa5f13cf1f2_1650597528618354801.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10003,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 5000,
+                "priceV2": {
+                  "amountInMinor": 5000,
+                  "amountDisplay": "5.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 5000,
+                  "amountDisplay": "5.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 18
+              },
+              {
+                "ID": "VNITE2022042104295015706",
+                "name": "Trứng Ốp La",
+                "available": true,
+                "priceInMinorUnit": 8000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022042104295015706/photo/menueditor_item_fdf5824e3a444a8480d155a901cab488_1650515373502618362.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022042104295015706/detail/menueditor_item_fdf5824e3a444a8480d155a901cab488_1650515373502618362.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10001,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 8000,
+                "priceV2": {
+                  "amountInMinor": 8000,
+                  "amountDisplay": "8.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 8000,
+                  "amountDisplay": "8.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 19
+              },
+              {
+                "ID": "VNITE2022042104290700340",
+                "name": "Chả Trứng Hấp",
+                "available": true,
+                "priceInMinorUnit": 8000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022042104290700340/photo/menueditor_item_842da08c55584ba995af743044fe23e6_1650515311488067408.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022042104290700340/detail/menueditor_item_842da08c55584ba995af743044fe23e6_1650515311488067408.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10000,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 8000,
+                "priceV2": {
+                  "amountInMinor": 8000,
+                  "amountDisplay": "8.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 8000,
+                  "amountDisplay": "8.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 20
+              },
+              {
+                "ID": "VNITE20220416093003060271",
+                "name": "Cơm sườn nướng",
+                "available": true,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093003060271/photo/menueditor_item_a68ca51f20b7401591d790037f3a67a3_1650125230592132715.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093003060271/detail/menueditor_item_a68ca51f20b7401591d790037f3a67a3_1650125230592132715.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9999,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 21
+              },
+              {
+                "ID": "VNITE20220416093003114341",
+                "name": "Cơm sườn + chả trứng",
+                "available": true,
+                "priceInMinorUnit": 40000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093003114341/photo/menueditor_item_9e3e098dff5e4c27a2a3d88c1f4f18df_1650597579586365369.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093003114341/detail/menueditor_item_9e3e098dff5e4c27a2a3d88c1f4f18df_1650597579586365369.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9998,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 40000,
+                "priceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 22
+              },
+              {
+                "ID": "VNITE20220416093003139383",
+                "name": "Cơm sườn + ốp la",
+                "available": true,
+                "priceInMinorUnit": 40000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093003139383/photo/menueditor_item_9bf9f338ef404f2e96bd69c4fe66b8dc_1650125371313403528.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093003139383/detail/menueditor_item_9bf9f338ef404f2e96bd69c4fe66b8dc_1650125371313403528.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9997,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 40000,
+                "priceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 23
+              },
+              {
+                "ID": "VNITE20220416093003219726",
+                "name": "Cơm sườn non rim chua ngọt",
+                "available": true,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093003219726/photo/menueditor_item_947872d18b06478fb097dd5c58197f18_1650125335647612052.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093003219726/detail/menueditor_item_947872d18b06478fb097dd5c58197f18_1650125335647612052.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9995,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 24
+              },
+              {
+                "ID": "VNITE20220416093003261204",
+                "name": "Cơm ba chỉ nướng ",
+                "available": true,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093003261204/photo/menueditor_item_435902317ef640abae51c13201eca323_1650125458334635169.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093003261204/detail/menueditor_item_435902317ef640abae51c13201eca323_1650125458334635169.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9994,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 25
+              },
+              {
+                "ID": "VNITE20220416093003366256",
+                "name": "Cơm gà chiên mắm",
+                "available": true,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093003366256/photo/menueditor_item_b05e11c78c3c4df8a2c7503d81e17537_1650125516175022619.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093003366256/detail/menueditor_item_b05e11c78c3c4df8a2c7503d81e17537_1650125516175022619.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9992,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 26
+              },
+              {
+                "ID": "VNITE20220416093003418024",
+                "name": "Cơm thịt kho trứng",
+                "available": true,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093003418024/photo/menueditor_item_7d520765b435493090281a5ae8afa20f_1650125414164283025.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093003418024/detail/menueditor_item_7d520765b435493090281a5ae8afa20f_1650125414164283025.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9991,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 27
+              },
+              {
+                "ID": "VNITE2022051908093396551",
+                "name": "Cơm Tấm Sườn Nướng + Đậu Khuôn",
+                "available": false,
+                "priceInMinorUnit": 40000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022051908093396551/photo/menueditor_item_aeb9859f05d74f6cb4a2679c6323a598_1652947739366329724.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022051908093396551/detail/menueditor_item_aeb9859f05d74f6cb4a2679c6323a598_1652947739366329724.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10007,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 40000,
+                "priceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 40000,
+                  "amountDisplay": "40.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 28
+              },
+              {
+                "ID": "VNITE2022042104310297659",
+                "name": "Cơm Thập Cẩm",
+                "available": false,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022042104310297659/photo/menueditor_item_98da0a1db4474b4a943c790572fcc848_1650515439617619026.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022042104310297659/detail/menueditor_item_98da0a1db4474b4a943c790572fcc848_1650515439617619026.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 10002,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 29
+              },
+              {
+                "ID": "VNITE20220416093004063569",
+                "name": "Cơm Tấm Chả Cá Sốt Cà",
+                "available": false,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093004063569/photo/menueditor_item_4f09c1a42c114f4cbdb886aae5bbf5e6_1650125584713264522.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093004063569/detail/menueditor_item_4f09c1a42c114f4cbdb886aae5bbf5e6_1650125584713264522.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9989,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 30
+              },
+              {
+                "ID": "VNITE20220416093004138381",
+                "name": "Cơm gà kho sả ớt",
+                "available": false,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093004138381/photo/menueditor_item_bbea8e60134b48208ec907fc239a5ac4_1650125628550455011.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093004138381/detail/menueditor_item_bbea8e60134b48208ec907fc239a5ac4_1650125628550455011.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9988,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 31
+              },
+              {
+                "ID": "VNITE20220416093004219533",
+                "name": "Cơm đậu khuôn nhồi thịt",
+                "available": false,
+                "priceInMinorUnit": 35000,
+                "imgHref": "https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE20220416093004219533/photo/menueditor_item_235f8f79eccb451bba3f84984a0b9746_1650125669513393862.jpg",
+                "images": [
+                  "https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE20220416093004219533/detail/menueditor_item_235f8f79eccb451bba3f84984a0b9746_1650125669513393862.webp"
+                ],
+                "description": "",
+                "modifierGroups": [],
+                "sortOrder": 9987,
+                "campaignID": "",
+                "campaignName": "",
+                "discountedPriceInMin": 35000,
+                "priceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "discountedPriceV2": {
+                  "amountInMinor": 35000,
+                  "amountDisplay": "35.000"
+                },
+                "_currency": {
+                  "code": "VND",
+                  "symbol": "₫",
+                  "exponent": 0,
+                  "ISOSymbol": ""
+                },
+                "position": 32
+              }
+            ],
+            "sortOrder": 10000
+          }
+        ],
+        "menuMeta": {
+          "orderValueLimit": 1000000
+        },
+        "campaigns": [
+          {
+            "ID": "5-C3E3WAAAERLXRN-C3VUJ2TYNYMBA6-83687255",
+            "campaignLevel": "item",
+            "campaignType": "percentage",
+            "startTime": {
+              "seconds": 1665334800
+            },
+            "endTime": {
+              "seconds": 1665939540
+            },
+            "name": "Cơm Tấm Sườn  Giảm 100%",
+            "priority": "low",
+            "status": "ongoing",
+            "tcDetails": [
+              "Chỉ áp dụng tại một vài cửa hàng nhất định",
+              "Tối đa 1 lượt đổi mỗi người",
+              "Tối đa 56 lượt đổi trong thời gian khuyến mãi",
+              "Hạn sử dụng 2022-10-10 00:00 đến 2022-10-16 23:59"
+            ],
+            "nameForMex": "Deal Đậm - Mua 2 tặng 1 - Central",
+            "businessTag": 1
+          },
+          {
+            "ID": "5-C3E3WAAAERLXRN-C3VTRNCVGN4EPE-24379405",
+            "campaignLevel": "item",
+            "campaignType": "net",
+            "startTime": {
+              "seconds": 1665594001
+            },
+            "endTime": {
+              "seconds": 1665680399
+            },
+            "name": "Combo 2 cơm sườn nướng + 1 cơm ba chỉ nướng  Giảm 11.000₫",
+            "priority": "low",
+            "status": "ongoing",
+            "tcDetails": [
+              "Chỉ áp dụng tại một vài cửa hàng nhất định",
+              "Tối đa 1 lượt đổi mỗi người",
+              "Tối đa 100 lượt đổi trong thời gian khuyến mãi",
+              "Hạn sử dụng 2022-10-13 00:00 đến 2022-10-13 23:59"
+            ],
+            "nameForMex": "Đại tiệc gia đình 99K",
+            "businessTag": 1
+          },
+          {
+            "ID": "5-C3E3WAAAERLXRN-C3VTR2M2L3V2CT-31595956",
+            "campaignLevel": "item",
+            "campaignType": "net",
+            "startTime": {
+              "seconds": 1665594001
+            },
+            "endTime": {
+              "seconds": 1665680399
+            },
+            "name": "Cơm ốp la + chả trứng  Giảm 5.000₫",
+            "priority": "low",
+            "status": "ongoing",
+            "tcDetails": [
+              "Chỉ áp dụng tại một vài cửa hàng nhất định",
+              "Tối đa 1 lượt đổi mỗi người",
+              "Tối đa 100 lượt đổi trong thời gian khuyến mãi",
+              "Hạn sử dụng 2022-10-13 00:00 đến 2022-10-13 23:59"
+            ],
+            "nameForMex": "Cơm no đủ 20K",
+            "businessTag": 1
+          }
+        ]
+      },
+      "currency": {
+        "code": "VND",
+        "symbol": "₫",
+        "exponent": 0,
+        "ISOSymbol": ""
+      },
+      "rating": 4.5,
+      "voteCount": 326,
+      "status": "ACTIVE",
+      "deliverBy": "GRAB",
+      "radius": 7000,
+      "promo": {
+        "hasPromo": true,
+        "description": "Ưu đãi đến 45K"
+      },
+      "sofConfiguration": {
+        "thresholdInMin": 50000,
+        "thresholdForDisplay": {
+          "amountInMinor": 50000,
+          "amountDisplay": "50.000₫"
+        },
+        "calculationMode": "FixedFee",
+        "fixFeeInMin": 3000,
+        "fixFeeForDisplay": {
+          "amountInMinor": 3000,
+          "amountDisplay": "3.000₫"
+        }
+      },
+      "isLeadsGen": false,
+      "businessType": "FOOD",
+      "schedulerOrderConfig": {
+        "enableScheduleOrder": true,
+        "scheduleTimeSlots": [
+          {
+            "timeSlots": [
+              {
+                "from": {
+                  "seconds": 1665720000
+                },
+                "to": {
+                  "seconds": 1665725400
+                },
+                "available": true
+              },
+              {
+                "from": {
+                  "seconds": 1665744300
+                },
+                "to": {
+                  "seconds": 1665747000
+                },
+                "available": true
+              }
+            ]
+          },
+          {
+            "timeSlots": [
+              {
+                "from": {
+                  "seconds": 1665806400
+                },
+                "to": {
+                  "seconds": 1665811800
+                },
+                "available": true
+              },
+              {
+                "from": {
+                  "seconds": 1665830700
+                },
+                "to": {
+                  "seconds": 1665833400
+                },
+                "available": true
+              }
+            ]
+          }
+        ],
+        "scheduleTimeSpan": 15,
+        "scheduleIntervalTime": 15,
+        "preSelectedStartTime": {
+          "seconds": 1665720000
+        },
+        "minAdvancePeriodInMin": 120
+      },
+      "features": {
+        "enableServiceBasedMenu": true
+      }
+    }
+  },
+  "loadings": {
+    "5-C3E3WAAAERLXRN": false
+  },
+  "errors": {
+    "5-C3E3WAAAERLXRN": null
+  },
+  "cuisine": {},
+  "menuRefreshedInfoBarVisible": false,
+  "activeMerchantID": "5-C3E3WAAAERLXRN"
+}

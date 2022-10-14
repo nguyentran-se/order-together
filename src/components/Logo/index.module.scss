@@ -1,0 +1,26 @@
+
+.Logo {
+  font-family: 'Thunder', 'Roboto';
+  color: black;
+  font-style: italic;
+  justify-content: center;
+
+  &__lg {
+    font-size: 70px;
+    margin: 0 40px;
+  }
+
+  &__md {
+    font-size: 50px;
+    min-width: 250px;
+    display: flex;
+  }
+
+  &__sm {
+    font-size: 24px;
+    min-width: 100px;
+  }
+}
+
+
+ 
