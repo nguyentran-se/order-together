@@ -4,3 +4,5 @@ export enum Status {
   RESOLVED = "resolved",
   REJECTED = "rejected",
 }
+
+export type Callback = (...args: any[]) => void;

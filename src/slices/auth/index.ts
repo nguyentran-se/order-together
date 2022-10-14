@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Status } from "@types";
+import { Status, UserSlack } from "@types";
 
 interface AuthState {
   isLoggedIn: boolean;
   status: Status;
-  userProfile: any;
+  userProfile: UserSlack;
   error: any;
 }
 const initialState: AuthState = {

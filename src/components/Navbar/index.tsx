@@ -26,7 +26,7 @@ import {
 import { loginWithSlack } from "slices/auth/authSaga";
 import { breakpoints } from "utils";
 import { Icon } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+// import { HamburgerIcon } from "@chakra-ui/icons";
 import Sidebar from "components/Sidebar";
 
 const signinBtn = (isLoading = false) => {
@@ -130,13 +130,13 @@ function Navbar() {
                         onToggleNavMenu();
                       }}
                     >
-                      <Icon
+                      {/* <Icon
                         href="/"
                         color="ActiveBorder"
                         as={HamburgerIcon}
                         w={10}
                         h={10}
-                      ></Icon>
+                      ></Icon> */}
                     </a>
                   </Link>
                 </Box>
@@ -153,13 +153,13 @@ function Navbar() {
                         onToggleNavMenu();
                       }}
                     >
-                      <Icon
+                      {/* <Icon
                         href="/"
                         color="ActiveBorder"
                         as={HamburgerIcon}
                         w={8}
                         h={8}
-                      ></Icon>
+                      ></Icon> */}
                     </a>
                   </Link>
                 </Box>
