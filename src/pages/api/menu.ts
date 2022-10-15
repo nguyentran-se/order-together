@@ -7,7 +7,8 @@ type Data = {
   data: string;
 };
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const url = req.query.url as string;
+  // const url = req.query.url as string;
+  const url = req.body.url;
   console.log('start scraping: ', url);
 
   try {
@@ -34,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const script = $('script#__NEXT_DATA__[type="application/json"]').text();
     const data = JSON.parse(script);
 
-    res.status(200).json({ data: data });
+    res.status(200).json({ data: data.props.initialReduxState.pageRestaurantDetail });
   } catch (error: any) {
     console.log(error);
     res.status(500).json(error);

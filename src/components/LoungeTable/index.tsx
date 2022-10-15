@@ -15,7 +15,7 @@ function LoungeTable({
   numberOfParticipants = 0,
   tableInfo = {},
 }: loungeTableProps) {
-  console.log(tableInfo);
+  // console.log(tableInfo);
   return (
     <Link href={'/lounge/' + tableInfo.ID}>
       <a>

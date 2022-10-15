@@ -8,3 +8,7 @@ export interface UserFirebase {
   uid?: string;
   tenantId?: string | null;
 }
+
+export type ObjectFirebaseResponse = {
+  [index: string]: Object;
+};

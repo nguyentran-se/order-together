@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
 import LoungeTable from 'components/LoungeTable';
 import { useAppSelector } from 'hooks';
 import type { NextPage } from 'next';
@@ -6,7 +6,8 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { selectAuthFirebaseUid, selectAuthUserProfile } from 'selectors';
-import { getUserSlackInfor } from 'slices/authFirebase/authFirebaseSaga';
+import { getUserSlackInfor } from 'slices/authFirebase/authFirebase.saga';
+import { createLounge, getLounges } from 'slices/lounge/lounge.saga';
 import { isEmpty } from 'utils';
 import dummyPayload from './dummyPayload.json';
 import styles from './index.module.scss';
@@ -15,9 +16,14 @@ const Lounge: NextPage = () => {
   const uid = useAppSelector(selectAuthFirebaseUid);
   const userSlack = useAppSelector(selectAuthUserProfile);
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (uid && isEmpty(userSlack)) dispatch(getUserSlackInfor(uid));
   }, [dispatch, uid, userSlack]);
+
+  useEffect(() => {
+    dispatch(getLounges());
+  }, [dispatch]);
 
   const fakeData = [
     {
@@ -50,6 +56,12 @@ const Lounge: NextPage = () => {
     host: 'Bao',
     photoHref: dummyData.photoHref,
   };
+  async function handleCreateLounge() {
+    //TODO: create Modal to submit lounge form.
+    const URL =
+      'https://food.grab.com/vn/vi/restaurant/c%C6%A1m-t%E1%BA%A5m-c%C6%A1m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-l%C3%A2m-th%C3%BAy-delivery/5-C3E3WAAAERLXRN';
+    dispatch(createLounge(URL));
+  }
   return (
     <>
       <Head>
@@ -57,6 +69,9 @@ const Lounge: NextPage = () => {
         <meta name="description" content="Lounge" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Button onClick={handleCreateLounge} colorScheme="blue">
+        Create lounge
+      </Button>
       <Flex flexWrap="wrap" className={styles.Lounge}>
         <Flex direction="column" width="full">
           <Flex flexWrap="wrap" marginTop={20} justifyContent="center" columnGap={10}>
