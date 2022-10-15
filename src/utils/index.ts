@@ -4,5 +4,8 @@ export const breakpoints = {
   lg: '(max-width:960px)',
   xl: '(max-width:1200px)',
   '2xl': '(max-width:1536px)',
-}
-export * from "./localStorage";
+};
+export const isEmpty = (obj: any) => {
+  return obj && Object.keys(obj).length === 0 && Object.getPrototypeOf(obj) === Object.prototype;
+};
+export * from './localStorage';

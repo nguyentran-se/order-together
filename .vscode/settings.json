@@ -1,0 +1,16 @@
+{
+  "files.exclude": {
+    ".husky": false,
+    "node_modules": false,
+    "bin": false,
+    ".github": false
+  },
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.formatOnSave": true,
+  "jest.autoRun": "off",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
+}

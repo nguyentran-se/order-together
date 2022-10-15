@@ -3,6 +3,7 @@
 # project
 /designs
 /screenshots
+.env.local
 # dependencies
 /node_modules
 /.pnp
