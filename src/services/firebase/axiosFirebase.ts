@@ -1,6 +1,6 @@
 import axios from 'axios';
-import qs from 'query-string';
 import camelcaseKeys from 'camelcase-keys';
+import qs from 'query-string';
 import { getLocalStorage } from 'utils';
 const instance = axios.create({
   headers: {
@@ -23,7 +23,7 @@ instance.interceptors.request.use((config) => {
 });
 
 instance.interceptors.response.use((response) => {
-  if (response?.data) return camelcaseKeys(response.data);
+  if (response?.data) return response.data;
 
   return camelcaseKeys(response);
 });

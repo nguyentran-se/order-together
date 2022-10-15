@@ -15,9 +15,10 @@ function* handleCreateLounge(action: PayloadAction<string>): any {
   const data: ScrapedLounge = response.data.data;
   const loungeId = data.activeMerchantID;
   const uid = yield select(selectAuthFirebaseUid);
+  const submittedData = { ...data, owner: uid };
   yield all([
     call(loungeApi.updateUserLounge, uid, { [loungeId]: true }),
-    call(loungeApi.createLounge, data),
+    call(loungeApi.createLounge, submittedData),
   ]);
 }
 
