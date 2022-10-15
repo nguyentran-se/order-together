@@ -4,7 +4,7 @@ import camelcaseKeys from 'camelcase-keys';
 import jwtDecode from 'jwt-decode';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { createExchangeTokenPostRequest } from 'services/slack';
-import { authFirebase } from 'slices/authFirebase/authFirebaseSaga';
+import { authFirebase } from 'slices/authFirebase/authFirebase.saga';
 import { setLocalStorage } from 'utils';
 import { loginFailed, loginRequest, loginSucceed } from '.';
 

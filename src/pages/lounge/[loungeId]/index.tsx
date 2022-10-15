@@ -2,9 +2,9 @@ import { useRouter } from 'next/router';
 
 const LoungeRoom = () => {
   const router = useRouter();
-  const { roomId } = router.query;
+  const { loungeId } = router.query;
 
-  return <p>LoungeRoom: {roomId}</p>;
+  return <p>LoungeRoom: {loungeId}</p>;
 };
 
 export default LoungeRoom;
