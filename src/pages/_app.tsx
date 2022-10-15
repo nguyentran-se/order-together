@@ -1,15 +1,11 @@
-import Layout from "layout";
-import "globals";
-import "../assets/styles/globals.scss"
-import type { AppProps } from "next/app";
-import { Provider } from "react-redux";
-import store from "store";
-import { ChakraProvider } from "@chakra-ui/react";
-import Firebase from "services/firebase";
-import { useEffect } from "react";
-
-const app = new Firebase();
-// console.log("app");
+import Layout from 'layout';
+import 'globals';
+import '../assets/styles/globals.scss';
+import type { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
+import store from 'store';
+import { ChakraProvider } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
