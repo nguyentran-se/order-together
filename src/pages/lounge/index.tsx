@@ -1,12 +1,24 @@
-import { Button, Flex } from "@chakra-ui/react";
-import LoungeTable from "components/LoungeTable";
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
+import { Flex } from '@chakra-ui/react';
+import LoungeTable from 'components/LoungeTable';
+import { useAppSelector } from 'hooks';
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { selectAuthFirebaseUid, selectAuthUserProfile } from 'selectors';
+import { getUserSlackInfor } from 'slices/authFirebase/authFirebaseSaga';
+import { isEmpty } from 'utils';
+import dummyPayload from './dummyPayload.json';
 import styles from './index.module.scss';
-import dummyPayload from './dummyPayload.json'
 
 const Lounge: NextPage = () => {
+  const uid = useAppSelector(selectAuthFirebaseUid);
+  const userSlack = useAppSelector(selectAuthUserProfile);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (uid && isEmpty(userSlack)) dispatch(getUserSlackInfor(uid));
+  }, [dispatch, uid, userSlack]);
+
   const fakeData = [
     {
       id: 0,
@@ -37,7 +49,7 @@ const Lounge: NextPage = () => {
     status: 'available',
     host: 'Bao',
     photoHref: dummyData.photoHref,
-  }
+  };
   return (
     <>
       <Head>
@@ -45,23 +57,20 @@ const Lounge: NextPage = () => {
         <meta name="description" content="Lounge" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Flex
-        flexWrap="wrap"
-        className={styles.Lounge}
-      >
+      <Flex flexWrap="wrap" className={styles.Lounge}>
         <Flex direction="column" width="full">
-          <Flex flexWrap='wrap' marginTop={20} justifyContent='center' columnGap={10}>
-            <Flex key={100} marginBottom={20} flexBasis='30%' justifyContent='center'>
+          <Flex flexWrap="wrap" marginTop={20} justifyContent="center" columnGap={10}>
+            <Flex key={100} marginBottom={20} flexBasis="30%" justifyContent="center">
               {/* <h4>{table.hostName}</h4> */}
               <LoungeTable tableInfo={dummyOverviewData}></LoungeTable>
             </Flex>
-            {fakeData.map(table => {
+            {fakeData.map((table) => {
               return (
-                <Flex key={table.id} marginBottom={20} flexBasis='30%' justifyContent='center'>
+                <Flex key={table.id} marginBottom={20} flexBasis="30%" justifyContent="center">
                   {/* <h4>{table.hostName}</h4> */}
                   <LoungeTable name={table.hostName}></LoungeTable>
                 </Flex>
-              )
+              );
             })}
           </Flex>
         </Flex>

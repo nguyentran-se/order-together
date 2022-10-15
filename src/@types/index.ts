@@ -1,3 +1,3 @@
-export * from "./common";
-export * from './slack'
-export * from './firebase'
+export * from './common';
+export * from './slack';
+export * from './firebase';

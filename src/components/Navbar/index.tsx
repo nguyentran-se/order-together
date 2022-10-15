@@ -1,49 +1,29 @@
-import React from "react";
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
-import {
-  Button,
-  WrapItem,
-  Wrap,
-  Avatar,
-  Show,
-  Hide,
-  Flex,
-  Spacer,
-  Box,
-} from "@chakra-ui/react";
-import { Status } from "@types";
-import { createAuthRequest } from "services/slack";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectAuthStatus,
-  selectAuthUserProfile,
-  selectIsLoggedIn,
-} from "selectors";
-import { loginWithSlack } from "slices/auth/authSaga";
-import { breakpoints } from "utils";
-import { Icon } from "@chakra-ui/react";
+import { Box, Button, Flex, Show, Spacer } from '@chakra-ui/react';
+import { Status } from '@types';
+import Link from 'next/link';
+import { useState } from 'react';
+import { selectAuthStatus } from 'selectors';
+import { createAuthRequest } from 'services/slack';
 // import { HamburgerIcon } from "@chakra-ui/icons";
-import Sidebar from "components/Sidebar";
+import { useAppSelector } from 'hooks';
 
 const signinBtn = (isLoading = false) => {
   return (
-    <a className={styles["btn-login"]} href={createAuthRequest()}>
+    <a className={styles['btn-login']} href={createAuthRequest()}>
       <Button
         colorScheme="blackAlpha"
         variant="solid"
         isLoading={isLoading}
-        className={styles["glow-on-hover"]}
+        className={styles['glow-on-hover']}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           style={{
-            height: "20px",
-            width: "20px",
-            marginRight: "12px",
+            height: '20px',
+            width: '20px',
+            marginRight: '12px',
           }}
           viewBox="0 0 122.8 122.8"
         >
@@ -76,7 +56,7 @@ const signinBtn = (isLoading = false) => {
 // };
 
 function Navbar() {
-  const status = useSelector(selectAuthStatus);
+  const status = useAppSelector(selectAuthStatus);
   const isLoading = status === Status.PENDING;
 
   const [isNavMenuToggled, toggleNavMenu] = useState(false);
@@ -85,9 +65,8 @@ function Navbar() {
   };
   return (
     <Box className={styles.Nav}>
-        {
-        // !isLoggedIn && 
-        (
+      {
+        // !isLoggedIn &&
         // ? (
         //   <Flex flexWrap="wrap" alignItems={"center"} style={{'background': 'lightsteelblue'}}>
         //     <Show above="lg">
@@ -103,9 +82,9 @@ function Navbar() {
         //   </Flex>
         // ) :
         <>
-          <Flex flexWrap="wrap" alignItems={"center"}>
+          <Flex flexWrap="wrap" alignItems={'center'}>
             <Show above="lg">
-              <Box className={styles["Nav--logo"]}>
+              <Box className={styles['Nav--logo']}>
                 <Link href="/">ORDER TOGETHER</Link>
               </Box>
               <Spacer />
@@ -119,10 +98,10 @@ function Navbar() {
             <Show below="lg">
               <Show above="md">
                 <Box w={40} h={0}></Box>
-                <Box flexGrow={1} className={styles["Nav--logo"]}>
+                <Box flexGrow={1} className={styles['Nav--logo']}>
                   <Link href="/">ORDER TOGETHER</Link>
                 </Box>
-                <Box className={styles["Nav--menu-btn"]} margin={10}>
+                <Box className={styles['Nav--menu-btn']} margin={10}>
                   <Link href="/">
                     <a
                       onClick={(e) => {
@@ -142,10 +121,10 @@ function Navbar() {
                 </Box>
               </Show>
               <Show below="md">
-                <Box flexGrow={1} className={styles["Nav--logo__small"]}>
+                <Box flexGrow={1} className={styles['Nav--logo__small']}>
                   <Link href="/">ORDER TOGETHER</Link>
                 </Box>
-                <Box className={styles["Nav--menu-btn"]} margin={5}>
+                <Box className={styles['Nav--menu-btn']} margin={5}>
                   <Link href="/">
                     <a
                       onClick={(e) => {
@@ -169,10 +148,8 @@ function Navbar() {
           <Show below="lg">
             <Box
               boxShadow="base"
-              className={`${styles["Nav--menu"]} ${
-                styles[
-                  isNavMenuToggled ? "Nav--menu__show" : "Nav--menu__hidden"
-                ]
+              className={`${styles['Nav--menu']} ${
+                styles[isNavMenuToggled ? 'Nav--menu__show' : 'Nav--menu__hidden']
               }`}
             >
               <ul>
@@ -183,7 +160,7 @@ function Navbar() {
             </Box>
           </Show>
         </>
-      )}
+      }
     </Box>
   );
 }

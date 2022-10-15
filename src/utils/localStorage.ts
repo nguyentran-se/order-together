@@ -1,8 +1,8 @@
-// const localStorage = window.localStorage;
-
+let localStorage: Storage;
+if (typeof window !== 'undefined') localStorage = window.localStorage;
 export const getLocalStorage = (key: string) => {
   try {
-    let result = localStorage.getItem(key);
+    let result = localStorage?.getItem(key);
     if (!result) {
       return null;
     }
