@@ -22,7 +22,7 @@
     "axios": "^0.27.2",
     "camelcase-keys": "^8.0.2",
     "cheerio": "^1.0.0-rc.12",
-    "chrome-aws-lambda": "^10.1.0",
+    "chrome-aws-lambda": "^9.1.0",
     "firebase": "^9.10.0",
     "firebase-admin": "^11.0.1",
     "framer-motion": "^7.5.0",
