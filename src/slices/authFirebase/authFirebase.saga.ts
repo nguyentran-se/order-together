@@ -1,12 +1,12 @@
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
 import { UserFirebase, UserSlack } from '@types';
 import { User } from 'firebase/auth';
-import { firebaseCore } from 'pages/_app';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { userApi } from 'services/firebase/apis';
 import { loginSucceed } from 'slices/auth';
 import { setLocalStorage } from 'utils';
 import { authFirebaseFailed, authFirebaseName, authFirebaseRequest, authFirebaseSucceed } from '.';
+import { firebaseCore } from '../../../pages/_app';
 /* #region 'async action' */
 export const authFirebase = createAction<UserSlack>(`${authFirebaseName}/authentication`);
 export const getUserSlackInfor = createAction<string>(`${authFirebaseName}/getUserSlackInfor`);

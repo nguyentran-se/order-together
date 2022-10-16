@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { selectIsLoggedIn } from 'selectors/common.selector';
 import { loginWithSlack } from 'slices/auth/auth.saga';
-import styles from '../assets/styles/home.module.scss';
+import styles from '../src/assets/styles/home.module.scss';
 
 const Home: NextPage = () => {
   const router = useRouter();

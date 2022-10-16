@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { selectAuthStatus } from 'selectors';
 // import { HamburgerIcon } from "@chakra-ui/icons";
 import { useAppSelector } from 'hooks';
-import { slackCore } from 'pages/_app';
+import { slackCore } from '../../../pages/_app';
 
 const signinBtn = (isLoading = false) => {
   return (

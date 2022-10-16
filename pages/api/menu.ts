@@ -1,13 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { load } from 'cheerio';
-// import {executablePath, args, headless} from 'chrome-aws-lambda';
-// import type { NextApiRequest, NextApiResponse } from 'next';
-import puppeteer from 'puppeteer';
-const { args, headless, executablePath } = require('chrome-aws-lambda');
+import chrome from 'chrome-aws-lambda';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import puppeteer from 'puppeteer-core';
 type Data = {
   data: string;
 };
-export default async function handler(req: any, res: any) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   // const url = req.query.url as string;
   const url = req.body.url;
   console.log('start scraping: ', url);
@@ -16,6 +15,13 @@ export default async function handler(req: any, res: any) {
     const options = await getOptions();
 
     const browser = await puppeteer.launch(options);
+    // const browser = await puppeteer.launch({
+    //   headless: chrome.headless,
+    //   ignoreHTTPSErrors: true,
+    //   executablePath: await chrome.executablePath,
+    //   defaultViewport: chrome.defaultViewport,
+    //   args: chrome.args,
+    // });
 
     const page = await browser.newPage();
 
@@ -35,7 +41,7 @@ export default async function handler(req: any, res: any) {
     const $ = load(html as string);
     const script = $('script#__NEXT_DATA__[type="application/json"]').text();
     const data = JSON.parse(script);
-
+    await browser.close();
     res.status(200).json({ data: data.props.initialReduxState.pageRestaurantDetail });
   } catch (error: any) {
     console.log(error);
@@ -53,9 +59,9 @@ const getOptions = async () => {
   let options;
   if (process.env.NODE_ENV === 'production') {
     options = {
-      args: args,
-      executablePath: await executablePath,
-      headless: headless,
+      args: chrome.args,
+      executablePath: await chrome.executablePath,
+      headless: true,
     };
   } else {
     options = {
