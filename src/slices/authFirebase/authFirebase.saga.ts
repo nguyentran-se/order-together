@@ -30,6 +30,10 @@ function* handleAuthFirebase(action: PayloadAction<UserSlack>): Generator<any, a
       case 'auth/email-already-in-use':
         yield call(handleEmailAlreadyInUse, email, userId, userSlack);
         break;
+      case 400:
+        if (error.message === 'EMAIL_EXISTS')
+          yield call(handleEmailAlreadyInUse, email, userId, userSlack);
+        break;
     }
   }
 }
@@ -48,14 +52,10 @@ function* handleEmailAlreadyInUse(
 
 function* handleSaveAuth(user: User, userSlack: UserSlack) {
   const transformedUser = transformUserFirebase(user);
-  console.log(user);
-  yield put(authFirebaseSucceed(transformedUser));
-  yield call(userApi.updateUserSlackInfor, transformedUser.uid as string, userSlack);
-  // const url = `user.json`;
-  // axiosFirebase.put(url, { [transformedUser.uid as string]: userSlack });
-
   const { accessToken, refreshToken } = user as any;
   setLocalStorage('fbtoken', { accessToken, refreshToken });
+  yield put(authFirebaseSucceed(transformedUser));
+  yield call(userApi.updateUserSlackInfor, transformedUser.uid as string, userSlack);
 }
 
 function transformUserFirebase(user: User): UserFirebase {
