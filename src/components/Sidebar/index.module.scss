@@ -1,0 +1,55 @@
+$--blue-500: #2b6cb0;
+$--blue-400: #4299e1;
+
+.Sidebar {
+  max-width: 20rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+  display: flex;
+  flex: 1 1 0%;
+  background-color: $--blue-500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  transition: ease-in-out 0.2s;
+
+  &__expanded {
+  }
+
+  &__minimized {
+    max-width: 8rem;
+  }
+
+  &--btn {
+    background-color: transparent !important;
+    justify-content: left !important;
+
+    span {
+      margin-left: 10px;
+    }
+
+    &__resize {
+      background-color: $--blue-500 !important;
+    }
+
+    &__resize:hover {
+      background-color: $--blue-400 !important;
+    }
+  }
+  &--btn:hover {
+    background-color: $--blue-400 !important;
+  }
+
+  &--section {
+    // margin-top: 1rem;
+  }
+
+  &--divider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    width: 80%;
+    border-bottom: solid 1px;
+  }
+}
