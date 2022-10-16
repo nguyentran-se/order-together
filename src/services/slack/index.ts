@@ -32,10 +32,13 @@ export default class Slack {
 
   createExchangeTokenPostRequest = (code: string) => {
     const url = 'https://slack.com/api/openid.connect.token';
+    const __DEV__ = process.env.NODE_ENV === 'development';
+    const localhost = 'https://localhost:3000/';
     const reqBody = {
       code,
       client_id: process.env.NEXT_PUBLIC_CLIENT_ID as string,
       client_secret: process.env.NEXT_PUBLIC_CLIENT_SECRET as string,
+      redirect_uri: __DEV__ ? localhost : (process.env.NEXT_PUBLIC_REDIRECT_URI as string),
     };
     const urlEncodedBody = new URLSearchParams(Object.entries(reqBody)).toString();
     const options = {

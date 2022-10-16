@@ -20,7 +20,7 @@ const authSlice = createSlice({
     loginRequest: (state) => {
       state.status = Status.PENDING;
     },
-    loginSucceed: (state, action: PayloadAction<any>) => {
+    loginSucceed: (state, action: PayloadAction<UserSlack>) => {
       state.status = Status.RESOLVED;
       state.isLoggedIn = true;
       state.userProfile = action.payload;
