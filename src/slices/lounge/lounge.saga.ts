@@ -16,10 +16,14 @@ function* handleCreateLounge(action: PayloadAction<string>): any {
   const loungeId = data.activeMerchantID;
   const uid = yield select(selectAuthFirebaseUid);
   const submittedData = { ...data, owner: uid };
-  yield all([
-    call(loungeApi.updateUserLounge, uid, { [loungeId]: true }),
-    call(loungeApi.createLounge, submittedData),
-  ]);
+  if (loungeId) {
+    yield all([
+      call(loungeApi.updateUserLounge, uid, { [loungeId]: true }),
+      call(loungeApi.createLounge, submittedData),
+    ]);
+  } else {
+    //TODO: catch this case when scraping failed
+  }
 }
 
 function* handleGetLounges(): any {
