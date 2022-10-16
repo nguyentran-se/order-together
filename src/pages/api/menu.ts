@@ -1,13 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { load } from 'cheerio';
 // import {executablePath, args, headless} from 'chrome-aws-lambda';
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { launch } from 'puppeteer';
+// import type { NextApiRequest, NextApiResponse } from 'next';
+import puppeteer from 'puppeteer';
 const { args, headless, executablePath } = require('chrome-aws-lambda');
 type Data = {
   data: string;
 };
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(req: any, res: any) {
   // const url = req.query.url as string;
   const url = req.body.url;
   console.log('start scraping: ', url);
@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   try {
     const options = await getOptions();
 
-    const browser = await launch(options);
+    const browser = await puppeteer.launch(options);
 
     const page = await browser.newPage();
 
