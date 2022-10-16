@@ -1,8 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import cheerio from 'cheerio';
-import chrome from 'chrome-aws-lambda';
+import { load } from 'cheerio';
+// import {executablePath, args, headless} from 'chrome-aws-lambda';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import puppeteer from 'puppeteer';
+import { launch } from 'puppeteer';
+const { args, headless, executablePath } = require('chrome-aws-lambda');
 type Data = {
   data: string;
 };
@@ -14,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   try {
     const options = await getOptions();
 
-    const browser = await puppeteer.launch(options);
+    const browser = await launch(options);
 
     const page = await browser.newPage();
 
@@ -31,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         : await page.evaluate(() => {
             return document.querySelector('body')?.innerHTML;
           });
-    const $ = cheerio.load(html as string);
+    const $ = load(html as string);
     const script = $('script#__NEXT_DATA__[type="application/json"]').text();
     const data = JSON.parse(script);
 
@@ -52,9 +53,9 @@ const getOptions = async () => {
   let options;
   if (process.env.NODE_ENV === 'production') {
     options = {
-      args: chrome.args,
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless,
+      args: args,
+      executablePath: await executablePath,
+      headless: headless,
     };
   } else {
     options = {
