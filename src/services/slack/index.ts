@@ -8,7 +8,7 @@ export default class Slack {
   }
 
   intializeConfiguration = () => {
-    const __DEV__ = process.env.NODE_ENV;
+    const __DEV__ = process.env.NODE_ENV === 'development';
     const localhost = 'https://localhost:3000/';
     return {
       client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
