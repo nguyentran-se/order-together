@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import Firebase from 'services/firebase';
+import Slack from 'services/slack';
 import store from 'store';
 import '../assets/styles/globals.scss';
 
@@ -31,4 +32,5 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 export default MyApp;
 
-export const firebaseAPI = new Firebase();
+export const firebaseCore = new Firebase();
+export const slackCore = new Slack();

@@ -1,13 +1,12 @@
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
 import { UserFirebase, UserSlack } from '@types';
 import { User } from 'firebase/auth';
-import { firebaseAPI } from 'pages/_app';
+import { firebaseCore } from 'pages/_app';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { userApi } from 'services/firebase/apis';
 import { loginSucceed } from 'slices/auth';
 import { setLocalStorage } from 'utils';
 import { authFirebaseFailed, authFirebaseName, authFirebaseRequest, authFirebaseSucceed } from '.';
-import axiosFirebase from 'services/firebase/axiosFirebase';
 /* #region 'async action' */
 export const authFirebase = createAction<UserSlack>(`${authFirebaseName}/authentication`);
 export const getUserSlackInfor = createAction<string>(`${authFirebaseName}/getUserSlackInfor`);
@@ -22,7 +21,7 @@ function* handleAuthFirebase(action: PayloadAction<UserSlack>): Generator<any, a
   if (!email || !userId) throw new Error('Missing user information');
 
   try {
-    const user: User = yield call(firebaseAPI.createUserAccount, email, userId);
+    const user: User = yield call(firebaseCore.createUserAccount, email, userId);
     console.log('createUserAccount - Firebase user: ', user);
     yield call(handleSaveAuth, user, userSlack);
   } catch (error: any) {
@@ -40,7 +39,7 @@ function* handleEmailAlreadyInUse(
   userSlack: UserSlack,
 ): Generator<any, any, any> {
   try {
-    const user: User = yield call(firebaseAPI.signIn, email, password);
+    const user: User = yield call(firebaseCore.signIn, email, password);
     yield call(handleSaveAuth, user, userSlack);
   } catch (error: any) {
     yield put(authFirebaseFailed(error.message));

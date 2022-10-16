@@ -2,8 +2,8 @@ import { createAction, PayloadAction } from '@reduxjs/toolkit';
 import { Callback, UserSlack } from '@types';
 import camelcaseKeys from 'camelcase-keys';
 import jwtDecode from 'jwt-decode';
+import { slackCore } from 'pages/_app';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { createExchangeTokenPostRequest } from 'services/slack';
 import { authFirebase } from 'slices/authFirebase/authFirebase.saga';
 import { setLocalStorage } from 'utils';
 import { loginFailed, loginRequest, loginSucceed } from '.';
@@ -22,7 +22,7 @@ function* handleLoginWithSlack(
   const succeedCallback = action.payload.succeedCallback;
   yield put(loginRequest());
   try {
-    const res = yield call(createExchangeTokenPostRequest, code);
+    const res = yield call(slackCore.createExchangeTokenPostRequest, code);
     if (res) {
       const data = camelcaseKeys(res.data);
       setLocalStorage('stoken', data.idToken);

@@ -5,13 +5,13 @@ import { Status } from '@types';
 import Link from 'next/link';
 import { useState } from 'react';
 import { selectAuthStatus } from 'selectors';
-import { createAuthRequest } from 'services/slack';
 // import { HamburgerIcon } from "@chakra-ui/icons";
 import { useAppSelector } from 'hooks';
+import { slackCore } from 'pages/_app';
 
 const signinBtn = (isLoading = false) => {
   return (
-    <a className={styles['btn-login']} href={createAuthRequest()}>
+    <a className={styles['btn-login']} href={slackCore.createAuthRequest()}>
       <Button
         colorScheme="blackAlpha"
         variant="solid"
