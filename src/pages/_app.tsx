@@ -1,4 +1,5 @@
 import { ChakraProvider } from '@chakra-ui/react';
+import 'globals';
 import Layout from 'layout';
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
@@ -6,8 +7,6 @@ import { Provider } from 'react-redux';
 import Firebase from 'services/firebase';
 import Slack from 'services/slack';
 import store from 'store';
-import '../src/assets/styles/globals.scss';
-// import '../src/assets/styles/globals';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);

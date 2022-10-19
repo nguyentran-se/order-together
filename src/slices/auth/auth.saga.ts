@@ -2,7 +2,7 @@ import { createAction, PayloadAction } from '@reduxjs/toolkit';
 import { Callback, UserSlack } from '@types';
 import camelcaseKeys from 'camelcase-keys';
 import jwtDecode from 'jwt-decode';
-import { slackCore } from '../../../pages/_app';
+import { slackCore } from '../../pages/_app';
 
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { authFirebase } from 'slices/authFirebase/authFirebase.saga';

@@ -6,7 +6,7 @@ import { userApi } from 'services/firebase/apis';
 import { loginSucceed } from 'slices/auth';
 import { setLocalStorage } from 'utils';
 import { authFirebaseFailed, authFirebaseName, authFirebaseRequest, authFirebaseSucceed } from '.';
-import { firebaseCore } from '../../../pages/_app';
+import { firebaseCore } from '../../pages/_app';
 /* #region 'async action' */
 export const authFirebase = createAction<UserSlack>(`${authFirebaseName}/authentication`);
 export const getUserSlackInfor = createAction<string>(`${authFirebaseName}/getUserSlackInfor`);

@@ -1,10 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { load } from 'cheerio';
 import chrome from 'chrome-aws-lambda';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import puppeteer from 'puppeteer-core';
 type Data = {
-  data: string;
+  data: string | null;
 };
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   // const url = req.query.url as string;
@@ -32,17 +31,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     // const title = await page.mainFrame().title();
     // await page.screenshot({ path: `screenshots/${title}.png` });
 
-    const html =
-      process.env.NODE_ENV === 'development'
-        ? await page.content()
-        : await page.evaluate(() => {
-            return document.querySelector('body')?.innerHTML;
-          });
-    const $ = load(html as string);
-    const script = $('script#__NEXT_DATA__[type="application/json"]').text();
-    const data = JSON.parse(script);
+    // const html =
+    //   process.env.NODE_ENV === 'development'
+    //     ? await page.content()
+    //     : await page.evaluate(() => {
+    //         return document.querySelector('body')?.innerHTML;
+    //       });
+    // const $ = load(html as string);
+    // const script = $('script#__NEXT_DATA__[type="application/json"]').text();
+    // const data = JSON.parse(script);
+    const text = await page.$eval(
+      'script#__NEXT_DATA__[type="application/json"]',
+      (el) => el.textContent,
+    );
+    if (!text)
+      return res.status(200).json({
+        data: null,
+      });
+
+    const data = JSON.parse(text);
     await browser.close();
-    res.status(200).json({ data: data.props.initialReduxState.pageRestaurantDetail });
+    res.status(200).json(data.props.initialReduxState.pageRestaurantDetail);
   } catch (error: any) {
     console.log(error);
     res.status(500).json(error);
@@ -59,9 +68,11 @@ const getOptions = async () => {
   let options;
   if (process.env.NODE_ENV === 'production') {
     options = {
-      args: chrome.args,
+      args: [...chrome.args, '--hide-scrollbars', '--disable-web-security'],
+      defaultViewport: chrome.defaultViewport,
       executablePath: await chrome.executablePath,
       headless: true,
+      ignoreHTTPSErrors: true,
     };
   } else {
     options = {
