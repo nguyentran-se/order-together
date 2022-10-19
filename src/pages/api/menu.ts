@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import chrome from 'chrome-aws-lambda';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import puppeteer from 'puppeteer-core';
+import * as puppeteer from 'puppeteer-core';
 type Data = {
   data: string | null;
 };
@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     // const data = JSON.parse(script);
     const text = await page.$eval(
       'script#__NEXT_DATA__[type="application/json"]',
-      (el) => el.textContent,
+      (el: any) => el.textContent,
     );
     if (!text)
       return res.status(200).json({
