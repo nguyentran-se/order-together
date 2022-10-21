@@ -2,8 +2,6 @@ import styles from 'assets/styles/orders.module.scss';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 const Orders: NextPage = () => {
-  console.log(styles.Order);
-
   return (
     <div className={styles.Order}>
       <Head>

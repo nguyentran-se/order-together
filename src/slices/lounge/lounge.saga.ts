@@ -12,15 +12,17 @@ export const getLounges = createAction(`${loungeSliceName}/getLounges`);
 function* handleCreateLounge(action: PayloadAction<string>): any {
   const URL = action.payload;
   const response = yield call(loungeApi.getScrapedLounge, URL);
-  const data: ScrapedLounge = response.data.data;
+  const data: ScrapedLounge = response.data;
   const loungeId = data.activeMerchantID;
   const uid = yield select(selectAuthFirebaseUid);
   const submittedData = { ...data, owner: uid };
+
   if (loungeId) {
     yield all([
       call(loungeApi.updateUserLounge, uid, { [loungeId]: true }),
       call(loungeApi.createLounge, submittedData),
     ]);
+    yield call(handleGetLounges);
   } else {
     //TODO: catch this case when scraping failed
   }
