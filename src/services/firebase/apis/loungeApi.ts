@@ -10,6 +10,10 @@ export const loungeApi = {
     const url = `lounge.json`;
     return axiosFirebase.get(url);
   },
+  getLoungeById: (id: string) => {
+    const url = `lounge/${id}.json`;
+    return axiosFirebase.get(url);
+  },
   updateUserLounge: (uid: string, data: { [index: string]: boolean }) => {
     const url = `user/${uid}/lounge.json`;
     return axiosFirebase.put(url, data);

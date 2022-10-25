@@ -1,0 +1,102 @@
+.TableCard {
+  display: block;
+  box-sizing: border-box;
+  width: 33.33333333%;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 24px;
+
+  float: left;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+  &__Wrapper {
+
+  }
+
+  &__Item {
+    display: flex;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__ItemPhoto {
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    margin-right: 16px;
+  }
+  
+  &__ItemContent {
+    &--Description {
+
+      h3 {
+        font-size: 1.14285714rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #1c1c1c;
+        word-break: break-word;
+      }
+
+      h6 {
+        font-size: .85714286rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #676767;
+        color: #acacac;
+        font-size: 14px;
+        line-height: 1.42857143;
+        font-weight: 400;
+        color: #9a9a9a;
+        -webkit-box-flex: 1;
+        flex: 1;
+        margin-top: 6px;
+        word-break: break-word;
+      }
+    }
+
+    &--Price {
+      font-size: 1.14285714rem;
+      line-height: 1.5;
+      font-weight: 400;
+      font-weight: 500;
+    }
+  }
+
+  &__ItemDiscount {
+    margin-top: 12px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    word-break: break-word;
+
+    &--Box {
+      border-radius: 2px;
+      background-color: rgba(243,134,33,.3);
+      margin-right: 4px;
+      padding: 2px;
+    }
+
+    &--Text {
+      padding: 2px;
+      line-height: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #f38621;
+      opacity: 1;
+    }
+
+    &--OriginPrice {
+      font-size: .85714286rem;
+      line-height: 1.5;
+      font-weight: 400;
+      color: #676767;
+      text-decoration: line-through;
+      color: #b7b7b7;
+    }
+    
+  }
+}

@@ -1,6 +1,5 @@
-import { Box, color } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import Link from 'next/link';
-import React from 'react';
 import styles from './index.module.scss';
 interface LogoProps {
   size?: 'sm' | 'md';
@@ -11,7 +10,7 @@ interface LogoProps {
 const getColor = (colorMode: LogoProps['color']) => {
   switch (colorMode) {
     case 'light':
-      return 'black';
+      return '#0060a9';
     case 'dark':
       return 'white';
     default:
