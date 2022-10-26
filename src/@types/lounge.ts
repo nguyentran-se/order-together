@@ -6,4 +6,5 @@ export type ScrapedLounge = {
   loadings: any;
   menuRefreshedInfoBarVisible: boolean;
   owner?: string;
+  lid?: string;
 };

@@ -51,6 +51,7 @@ const Lounge: NextPage = () => {
     const URL = url;
     dispatch(createLounge(URL));
   }
+  console.log(lounge);
   return (
     <>
       <Head>
@@ -87,17 +88,9 @@ const Lounge: NextPage = () => {
             </Flex>
             {lounge.map((table) => {
               return (
-                <Flex
-                  key={table.activeMerchantID}
-                  marginBottom={20}
-                  flexBasis="30%"
-                  justifyContent="center"
-                >
+                <Flex key={table.lid} marginBottom={20} flexBasis="30%" justifyContent="center">
                   {/* <h4>{table.hostName}</h4> */}
-                  <LoungeTable
-                    data={table.entities[table.activeMerchantID]}
-                    name={table.owner}
-                  ></LoungeTable>
+                  <LoungeTable table={table} name={table.owner}></LoungeTable>
                 </Flex>
               );
             })}

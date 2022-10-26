@@ -38,7 +38,7 @@ function Sidebar() {
         // color="gray.700"
         position="relative"
       >
-        <Flex position="absolute" transform="translateX(50%)" right={0} top="6%">
+        <Flex position="absolute" transform="translateX(50%)" right={0} top="5%">
           <IconButton
             aria-label="LeftBtn"
             borderRadius="50%"
