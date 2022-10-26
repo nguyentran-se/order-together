@@ -3,9 +3,15 @@ import LoungeTable from 'components/LoungeTable';
 import { useAppSelector } from 'hooks';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { firebaseCore } from 'pages/_app';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { selectAuthFirebaseUid, selectAuthUserProfile, selectLounge } from 'selectors';
+import {
+  selectAuthFirebaseUid,
+  selectAuthUserProfile,
+  selectIsLoggedIn,
+  selectLounge,
+} from 'selectors';
 import { getUserSlackInfor } from 'slices/authFirebase/authFirebase.saga';
 import { createLounge, getLounges } from 'slices/lounge/lounge.saga';
 import { isEmpty } from 'utils';
@@ -15,6 +21,7 @@ const Lounge: NextPage = () => {
   const uid = useAppSelector(selectAuthFirebaseUid);
   const userSlack = useAppSelector(selectAuthUserProfile);
   const lounge = useAppSelector(selectLounge);
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
 
   const [url, setUrl] = useState('');
@@ -24,8 +31,18 @@ const Lounge: NextPage = () => {
   }, [dispatch, uid, userSlack]);
 
   useEffect(() => {
-    dispatch(getLounges());
-  }, [dispatch]);
+    if (isLoggedIn) dispatch(getLounges());
+  }, [dispatch, isLoggedIn]);
+
+  useEffect(() => {
+    firebaseCore.loungeRef.on('child_added', (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        console.log(snapshot.key, snapshot.val());
+      });
+    });
+
+    return () => {};
+  }, []);
 
   async function handleCreateLounge() {
     //TODO: create Modal to submit lounge form.

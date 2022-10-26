@@ -68,7 +68,7 @@ function transformUserFirebase(user: User): UserFirebase {
 
 function* handleGetUserSlackInfor(action: PayloadAction<string>): any {
   const data = yield call(userApi.getUserSlackInfor, action.payload);
-  yield put(loginSucceed(data.slackInfo as UserSlack));
+  yield put(loginSucceed(data as UserSlack));
 }
 export default function authFirebaseSaga() {
   return [

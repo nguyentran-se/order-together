@@ -9,7 +9,9 @@ export const breakpoints = {
 };
 
 export const isEmpty = (obj: any) => {
-  return obj && Object.keys(obj).length === 0 && Object.getPrototypeOf(obj) === Object.prototype;
+  if (!obj) return true;
+  if (Array.isArray(obj)) return obj.length === 0;
+  return Object.keys(obj).length === 0 && Object.getPrototypeOf(obj) === Object.prototype;
 };
 
 export const transformObjectToArrayResponse = <T>(

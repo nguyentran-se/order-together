@@ -6,16 +6,27 @@ import {
   getAuth,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
+import 'firebase/compat/database';
 class Firebase {
   private app!: firebase.app.App;
-  private auth!: Auth;
+  public auth!: Auth;
+  private dbRef!: firebase.database.Reference;
+  public userRef!: firebase.database.Reference;
+  public loungeRef!: firebase.database.Reference;
   constructor() {
     console.log('%c firebase - initialize', 'color: #3182ce;');
     if (!this.app && !firebase.apps.length) {
       const configuration = this.initializeConfiguration();
       this.app = firebase.initializeApp(configuration);
+      this.initializeDatabase();
       this.auth = getAuth(this.app);
     }
+  }
+
+  initializeDatabase() {
+    this.dbRef = firebase.database().ref();
+    this.userRef = this.dbRef.child('user');
+    this.loungeRef = this.dbRef.child('lounge');
   }
 
   initializeConfiguration() {

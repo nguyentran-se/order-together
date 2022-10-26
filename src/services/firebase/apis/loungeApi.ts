@@ -3,9 +3,13 @@ import axios from 'axios';
 import axiosFirebase from '../axiosFirebase';
 export const loungeApi = {
   createLounge: (data: ScrapedLounge) => {
-    const url = `lounge/${data.activeMerchantID}.json`;
-    return axiosFirebase.put(url, data);
+    const url = `lounge.json`;
+    return axiosFirebase.post(url, data);
   },
+  // createLounge: (data: ScrapedLounge) => {
+  //   const url = `lounge/${data.activeMerchantID}.json`;
+  //   return axiosFirebase.put(url, data);
+  // },
   getLounges: () => {
     const url = `lounge.json`;
     return axiosFirebase.get(url);
