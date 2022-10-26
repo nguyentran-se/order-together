@@ -1,16 +1,18 @@
 .TableCard {
   display: block;
   box-sizing: border-box;
-  width: 33.33333333%;
+  width: 400px;
+  margin: 0 15px;
   padding-left: 12px;
   padding-right: 12px;
   margin-top: 24px;
-
+  border: 1px solid #eee;
+  border-radius: 9px;
   float: left;
-    -webkit-box-flex: 0;
-    flex: 0 0 auto;
+  -webkit-box-flex: 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  flex: 0 0 auto;
   &__Wrapper {
-
   }
 
   &__Item {
@@ -19,7 +21,6 @@
     background-color: #fff;
     border-radius: 5px;
     position: relative;
-    cursor: pointer;
   }
 
   &__ItemPhoto {
@@ -28,10 +29,9 @@
     border-radius: 5px;
     margin-right: 16px;
   }
-  
+
   &__ItemContent {
     &--Description {
-
       h3 {
         font-size: 1.14285714rem;
         line-height: 1.5;
@@ -41,7 +41,7 @@
       }
 
       h6 {
-        font-size: .85714286rem;
+        font-size: 0.85714286rem;
         line-height: 1.5;
         font-weight: 400;
         color: #676767;
@@ -75,7 +75,7 @@
 
     &--Box {
       border-radius: 2px;
-      background-color: rgba(243,134,33,.3);
+      background-color: rgba(243, 134, 33, 0.3);
       margin-right: 4px;
       padding: 2px;
     }
@@ -90,13 +90,12 @@
     }
 
     &--OriginPrice {
-      font-size: .85714286rem;
+      font-size: 0.85714286rem;
       line-height: 1.5;
       font-weight: 400;
       color: #676767;
       text-decoration: line-through;
       color: #b7b7b7;
     }
-    
   }
 }

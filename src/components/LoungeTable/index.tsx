@@ -11,16 +11,17 @@ interface loungeTableProps {
 }
 
 function LoungeTable({
-  data,
+  table,
   name,
   available = true,
   numberOfParticipants = 0,
   tableInfo = {},
 }: any) {
-  console.log(data);
+  console.log(table);
+  const data = table.entities[table.activeMerchantID];
   if (isEmpty(data)) return <>Loading</>;
   return (
-    <Link href={'/lounge/' + data?.ID}>
+    <Link href={'/lounge/' + table?.lid}>
       <a>
         <Box className={`${styles.LoungeTable}`}>
           {Object.keys(data || {}).length > 0 ? (

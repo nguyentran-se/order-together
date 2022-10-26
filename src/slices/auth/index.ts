@@ -1,6 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Status, UserSlack } from '@types';
+import jwtDecode from 'jwt-decode';
+import { getLocalStorage } from 'utils';
 
+const getLSUserProfile = () => {
+  const stoken = getLocalStorage('stoken');
+  let decodedData = {};
+  if (stoken) {
+    decodedData = jwtDecode(stoken);
+  }
+  return decodedData;
+};
 interface AuthState {
   isLoggedIn: boolean;
   status: Status;
@@ -10,7 +20,7 @@ interface AuthState {
 const initialState: AuthState = {
   isLoggedIn: false,
   status: Status.IDLE,
-  userProfile: {},
+  userProfile: getLSUserProfile(),
   error: null,
 };
 const authSlice = createSlice({
