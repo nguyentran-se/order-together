@@ -1,5 +1,8 @@
-import { AppState } from 'store';
+import { createSelector } from 'reselect';
+import { selectAuthFirebaseIsLoggedIn, selectAuthIsLoggedIn } from './common.selector';
 
-export const selectAuthStatus = (state: AppState) => state.auth.status;
-export const selectAuthIsLoggedIn = (state: AppState) => state.auth.isLoggedIn;
-export const selectAuthUserProfile = (state: AppState) => state.auth.userProfile;
+export const selectIsLoggedIn = createSelector(
+  selectAuthIsLoggedIn,
+  selectAuthFirebaseIsLoggedIn,
+  (s, f) => s || f,
+);

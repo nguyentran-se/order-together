@@ -17,8 +17,7 @@ import OrderDrawer from 'components/Drawer';
 import { useAppSelector } from 'hooks';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { selectAuthUserProfile } from 'selectors';
-import { selectIsLoggedIn } from 'selectors/common.selector';
+import { selectAuthUserProfile, selectIsLoggedIn } from 'selectors';
 import { logOut } from 'utils/logout';
 
 function HeaderBar() {

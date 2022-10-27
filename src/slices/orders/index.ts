@@ -1,6 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Status } from '@types';
-
+interface OrderDetail {
+  [index: string]: any;
+}
+interface Order {
+  data: {
+    [index: string]: OrderDetail;
+  };
+  status: Status;
+  error: any;
+}
 const initialState: any = {
   data: {},
   status: Status.IDLE,
