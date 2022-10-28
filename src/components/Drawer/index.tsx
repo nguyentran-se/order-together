@@ -11,12 +11,17 @@ import {
 } from '@chakra-ui/react';
 import CardItem from 'components/CardItem';
 import { useAppSelector } from 'hooks';
-import { selectOrders } from 'selectors/orders.selector';
+import { useDispatch } from 'react-redux';
+import { selectOrders } from 'selectors';
+import { createOrders } from 'slices/orders/orders.saga';
 
 function OrderDrawer({ isOpen, onClose }: any) {
   const orders = useAppSelector(selectOrders);
-  const ordersList = Object.keys(orders.data);
-  console.log(ordersList);
+  const ordersList = Object.keys(orders);
+  const dispatch = useDispatch();
+  function handleCreateOrders() {
+    dispatch(createOrders(orders));
+  }
   return (
     <>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="md">
@@ -26,16 +31,13 @@ function OrderDrawer({ isOpen, onClose }: any) {
           <DrawerHeader>My orders</DrawerHeader>
 
           <DrawerBody>
-            {ordersList.map((tableId: string) => {
-              console.log(orders.data[tableId]);
+            {ordersList.map((tableId: string, index) => {
               return (
-                <>
-                  <Flex flexDirection="column">
-                    {Object.values(orders.data[tableId]).map((order, id) => {
-                      return <CardItem key={id} data={order} />;
-                    })}
-                  </Flex>
-                </>
+                <Flex flexDirection="column" key={index}>
+                  {Object.values(orders[tableId]).map((order, id) => {
+                    return <CardItem key={id} data={order} />;
+                  })}
+                </Flex>
               );
             })}
           </DrawerBody>
@@ -44,7 +46,9 @@ function OrderDrawer({ isOpen, onClose }: any) {
             <Button variant="outline" mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue">Save</Button>
+            <Button colorScheme="blue" onClick={handleCreateOrders}>
+              Save
+            </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

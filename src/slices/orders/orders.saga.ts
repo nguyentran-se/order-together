@@ -1,40 +1,47 @@
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
-import { put, takeLatest } from 'redux-saga/effects';
-import { addOrderItem } from '.';
+import { all, call, select, takeLatest } from 'redux-saga/effects';
+import { selectAuthFirebaseUid, selectAuthUserProfile } from 'selectors';
+import { orderApi } from 'services/firebase/apis';
+import { loungeOrderApi } from 'services/firebase/apis/loungeOrder';
+import { isEmpty } from 'utils';
+import { orderSliceName } from '.';
 /* #region 'async action' */
-export const addOrder = createAction<any>(`orders/addOrder`);
+export const createOrders = createAction<any>(`${orderSliceName}/createOrders`);
 /* #endregion 'async action' */
 
-/* #region 'firebase authentication' */
-function* handleAddOrder(action: PayloadAction<any>): Generator<any, any, any> {
-  // console.log('Handle add order');
-  // console.log(action.payload);
-  yield put(addOrderItem(action.payload));
-  // const userSlack = action.payload;
-  // const { email, userId } = userSlack;
-  // console.log(email, ' ', userId);
-  // if (!email || !userId) throw new Error('Missing user information');
-  // try {
-  //   const user: User = yield call(firebaSseCore.createUserAccount, email, userId);
-  //   console.log('createUserAccount - Firebase user: ', user);
-  //   yield call(handleSaveAuth, user, userSlack);
-  // } catch (error: any) {
-  //   yield put(authFirebaseFailed(error.message));
-  //   console.log(error);
-  //   switch (error.code) {
-  //     case 'auth/email-already-in-use':
-  //       yield call(handleEmailAlreadyInUse, email, userId, userSlack);
-  //       break;
-  //     case 400:
-  //       if (error.message === 'EMAIL_EXISTS')
-  //         yield call(handleEmailAlreadyInUse, email, userId, userSlack);
-  //       break;
-  //   }
-  // }
-  //TODO: createOrder - POST -> response: oid
-  //TOD: createLoungeOrder - PUT -> data lid_oid.json: {lid. oid}
+function* handleCreateOrders(action: PayloadAction<any>): Generator<any, any, any> {
+  const uid = yield select(selectAuthFirebaseUid);
+  const buyerInfo = yield select(selectAuthUserProfile);
+  const loungeOrders = action.payload;
+  const loungeIds = Object.keys(loungeOrders);
+  const orderIdsResponse = yield all(
+    loungeIds.map((t) => {
+      const orderDetails = loungeOrders[t];
+      const submittedOrderData = {
+        ...orderDetails,
+        buyer: {
+          ...buyerInfo,
+          uid,
+        },
+      };
+      return call(orderApi.createOrders, submittedOrderData);
+    }),
+  );
+  yield call(handleCreateLoungeOrder, orderIdsResponse, loungeIds);
+}
+
+function* handleCreateLoungeOrder(orderIdsResponse: { name: string }[], loungeIds: string[]) {
+  if (!isEmpty(orderIdsResponse)) {
+    const orderIds = orderIdsResponse.map((r: any) => r.name);
+    yield all(
+      loungeIds.map((lid, index) => {
+        const oid = orderIds[index];
+        return call(loungeOrderApi.createLoungeOrder, lid, oid);
+      }),
+    );
+  }
 }
 
 export default function OrderSaga() {
-  return [takeLatest(addOrder, handleAddOrder)];
+  return [takeLatest(createOrders, handleCreateOrders)];
 }

@@ -17,4 +17,6 @@ export enum Collections {
   LOUNGE = 'lounge',
   USER = 'user',
   USER_LOUNGE = 'user-lounge',
+  ORDER = 'order',
+  LOUNGE_ORDER = 'lounge-order',
 }

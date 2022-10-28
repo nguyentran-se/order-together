@@ -1,12 +1,12 @@
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
-import { Callback, UserSlack } from '@types';
+import { Callback } from '@types';
 import camelcaseKeys from 'camelcase-keys';
 import jwtDecode from 'jwt-decode';
 import { slackCore } from '../../pages/_app';
 
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { authFirebase } from 'slices/authFirebase/authFirebase.saga';
-import { setLocalStorage } from 'utils';
+import { setLocalStorage, transformUserSlackData } from 'utils';
 import { loginFailed, loginRequest, loginSucceed } from '.';
 
 // actions
@@ -36,19 +36,6 @@ function* handleLoginWithSlack(
   } catch (error: any) {
     yield put(loginFailed(error.message));
   }
-}
-
-function transformUserSlackData(data: any): UserSlack {
-  const {
-    'https://slack.com/team_id': teamId,
-    'https://slack.com/user_id': userId,
-    'https://slack.com/team_name': teamName,
-    'https://slack.com/team_domain': teamDomain,
-    'https://slack.com/team_image_230': teamImage,
-    'https://slack.com/team_image_default': teamImageDefault,
-    ...rest
-  } = data;
-  return { ...rest, userId, teamId, teamDomain, teamImage, teamImageDefault };
 }
 
 export default function authSaga() {

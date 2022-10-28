@@ -11,7 +11,7 @@ const LoungeRoom = () => {
   useEffect(() => {
     if (loungeId) {
       loungeApi.getLoungeById(loungeId as string).then((res: any) => {
-        if (res.activeMerchantID) {
+        if (res?.activeMerchantID) {
           setLoungeById({
             ...res.entities[res.activeMerchantID].menu,
             roomId: res.entities[res.activeMerchantID].ID,

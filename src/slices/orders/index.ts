@@ -1,16 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Status } from '@types';
-interface OrderDetail {
-  [index: string]: any;
-}
-interface Order {
+import { OrderDetail, Status } from '@types';
+interface OrderState {
   data: {
     [index: string]: OrderDetail;
   };
   status: Status;
   error: any;
 }
-const initialState: any = {
+const initialState: OrderState = {
   data: {},
   status: Status.IDLE,
   error: null,
@@ -20,7 +17,7 @@ const ordersSlice = createSlice({
   name: 'orders',
   initialState,
   reducers: {
-    addOrderItem: (state, action: PayloadAction<any>) => {
+    addOrder: (state, action: PayloadAction<any>) => {
       const { tableId, orderId, orderDetail } = action.payload;
       state.data[tableId] = {
         ...state.data[tableId],
@@ -33,5 +30,6 @@ const ordersSlice = createSlice({
   },
 });
 
-export const { addOrderItem } = ordersSlice.actions;
+export const { addOrder } = ordersSlice.actions;
+export const orderSliceName = ordersSlice.name;
 export default ordersSlice.reducer;

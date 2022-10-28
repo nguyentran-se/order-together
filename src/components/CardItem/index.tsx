@@ -3,7 +3,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import { addOrder } from 'slices/orders/orders.saga';
+import { addOrder } from 'slices/orders';
 import styles from './index.module.scss';
 
 function CardItem({ data }: any) {
@@ -27,7 +27,7 @@ function CardItem({ data }: any) {
         <Box className={styles.TableCard__Item}>
           <Box>
             <Box className={styles.TableCard__ItemPhoto}>
-              <Image src={data.imgHref}></Image>
+              <Image src={data.imgHref} alt="dish"></Image>
             </Box>
           </Box>
           <Flex className={styles.TableCard__ItemContent} w="full">
