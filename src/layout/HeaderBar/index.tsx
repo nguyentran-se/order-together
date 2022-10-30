@@ -18,18 +18,21 @@ import { useAppSelector } from 'hooks';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { selectAuthUserProfile, selectIsLoggedIn } from 'selectors';
+import { selectNumberOfOrders } from 'selectors/orders.selector';
 import { logOut } from 'utils/logout';
+import styles from './index.module.scss';
 
 function HeaderBar() {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const userProfile = useAppSelector(selectAuthUserProfile);
+  const numberOfOrders = useAppSelector(selectNumberOfOrders);
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       {isLoggedIn && (
         <Box w="full">
-          <OrderDrawer isOpen={isOpen} onClose={onClose}></OrderDrawer>
+          <OrderDrawer isDrawerOpen={isOpen} onDrawerClose={onClose}></OrderDrawer>
           <Flex
             justifyContent="space-between"
             alignItems="center"
@@ -42,9 +45,21 @@ function HeaderBar() {
             </Box>
             <Box>
               <Flex>
-                <Button variant="ghost" size={'lg'} onClick={onOpen}>
-                  <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
-                </Button>
+                <Box>
+                  <Button
+                    position="relative"
+                    variant="ghost"
+                    size={'md'}
+                    onClick={onOpen}
+                    p="5px 10px"
+                    w="80px"
+                  >
+                    <FontAwesomeIcon icon={faShoppingCart} size="2x"></FontAwesomeIcon>
+                    <Box className={styles['Cart__order-box']} position="absolute">
+                      <Text fontSize="14px">{numberOfOrders}</Text>
+                    </Box>
+                  </Button>
+                </Box>
                 <Menu>
                   <MenuButton
                     _hover={{ boxShadow: 'outline' }}
