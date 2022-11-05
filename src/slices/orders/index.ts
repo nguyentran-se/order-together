@@ -48,7 +48,7 @@ const ordersSlice = createSlice({
       const { tableId, orderId } = action.payload;
       const { [orderId]: _, ...rest } = state.data[tableId];
       state.data[tableId] = rest;
-    }
+    },
     getOrdersByUidRequest: (state) => {
       state.status = Status.PENDING;
       state.error = null;
@@ -65,8 +65,14 @@ const ordersSlice = createSlice({
   },
 });
 
-export const { addOrder, getOrdersByUidRequest, getOrdersByUidSucceed, getOrdersByUidFailed, editOrderAmount, deleteOrder } =
-  ordersSlice.actions;
+export const {
+  addOrder,
+  getOrdersByUidRequest,
+  getOrdersByUidSucceed,
+  getOrdersByUidFailed,
+  editOrderAmount,
+  deleteOrder,
+} = ordersSlice.actions;
 export const orderSliceName = ordersSlice.name;
 
 export default ordersSlice.reducer;
