@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app';
 // import "firebase/compat/auth";
+import { Collections } from '@types';
 import {
   Auth,
   createUserWithEmailAndPassword,
@@ -13,6 +14,8 @@ class Firebase {
   private dbRef!: firebase.database.Reference;
   public userRef!: firebase.database.Reference;
   public loungeRef!: firebase.database.Reference;
+  public orderRef!: firebase.database.Reference;
+  public loungeOrderRef!: firebase.database.Reference;
   constructor() {
     console.log('%c firebase - initialize', 'color: #3182ce;');
     if (!this.app && !firebase.apps.length) {
@@ -25,8 +28,10 @@ class Firebase {
 
   initializeDatabase() {
     this.dbRef = firebase.database().ref();
-    this.userRef = this.dbRef.child('user');
-    this.loungeRef = this.dbRef.child('lounge');
+    this.userRef = this.dbRef.child(Collections.USER);
+    this.loungeRef = this.dbRef.child(Collections.LOUNGE);
+    this.orderRef = this.dbRef.child(Collections.ORDER);
+    this.loungeOrderRef = this.dbRef.child(Collections.LOUNGE_ORDER);
   }
 
   initializeConfiguration() {

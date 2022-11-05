@@ -17,7 +17,7 @@ function LoungeTable({
   numberOfParticipants = 0,
   tableInfo = {},
 }: any) {
-  console.log(table);
+  // console.log(table);
   const data = table.entities[table.activeMerchantID];
   if (isEmpty(data)) return <>Loading</>;
   return (

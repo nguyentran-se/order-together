@@ -4,10 +4,19 @@ import CardItem from 'components/CardItem';
 import { useAppSelector } from 'hooks';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { selectOrders } from 'selectors';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { selectConfirmedOrders, selectIsLoggedIn } from 'selectors';
+import { getOrdersByUid } from 'slices/orders/orders.saga';
+
 const Orders: NextPage = () => {
-  const orders = useAppSelector(selectOrders);
-  const ordersList = Object.keys(orders);
+  const dispatch = useDispatch();
+  const confirmedOrders = useAppSelector(selectConfirmedOrders);
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+  useEffect(() => {
+    if (isLoggedIn) dispatch(getOrdersByUid());
+  }, [dispatch, isLoggedIn]);
+
   return (
     <div className={styles.Order}>
       <Head>

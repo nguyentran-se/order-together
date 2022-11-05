@@ -1,17 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Status } from '@types';
-interface OrderDetail {
-  [index: string]: any;
-}
-interface Order {
+import { OrderDetail, OrderResponse, Status } from '@types';
+
+interface OrderState {
   data: {
     [index: string]: OrderDetail;
   };
+  confirmedData: OrderResponse[];
   status: Status;
   error: any;
 }
 const initialState: any = {
   data: {},
+  confirmedData: [],
   status: Status.IDLE,
   error: null,
 };
@@ -48,10 +48,25 @@ const ordersSlice = createSlice({
       const { tableId, orderId } = action.payload;
       const { [orderId]: _, ...rest } = state.data[tableId];
       state.data[tableId] = rest;
+    }
+    getOrdersByUidRequest: (state) => {
+      state.status = Status.PENDING;
+      state.error = null;
+    },
+    getOrdersByUidSucceed: (state, action: PayloadAction<OrderResponse[]>) => {
+      state.confirmedData = action.payload;
+      state.status = Status.RESOLVED;
+      state.error = null;
+    },
+    getOrdersByUidFailed: (state, action: PayloadAction<any>) => {
+      state.status = Status.REJECTED;
+      state.error = action.payload;
     },
   },
 });
 
-export const orderSliceName = 'orders';
-export const { addOrder, editOrderAmount, deleteOrder } = ordersSlice.actions;
+export const { addOrder, getOrdersByUidRequest, getOrdersByUidSucceed, getOrdersByUidFailed, editOrderAmount, deleteOrder } =
+  ordersSlice.actions;
+export const orderSliceName = ordersSlice.name;
+
 export default ordersSlice.reducer;

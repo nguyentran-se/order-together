@@ -1,8 +1,13 @@
 import { UserSlack } from './slack';
 export interface OrderDetail {
-  [index: string]: any;
-  amount: number;
+  [index: string]: {
+    amount: number;
+    [index: string]: any;
+  };
 }
-export interface OrderPayload extends OrderDetail {
+export type Order = OrderDetail & {
   buyer: UserSlack;
-}
+};
+export type OrderResponse = {
+  oid: string;
+} & Order;

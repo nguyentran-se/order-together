@@ -51,7 +51,6 @@ const Lounge: NextPage = () => {
     const URL = url;
     dispatch(createLounge(URL));
   }
-  console.log(lounge);
   return (
     <>
       <Head>
