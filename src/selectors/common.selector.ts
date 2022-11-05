@@ -14,3 +14,4 @@ export const selectLounge = (state: AppState) => state.lounge.data;
 
 /** ORDERS **/
 export const selectOrders = (state: AppState) => state.orders.data;
+export const selectConfirmedOrders = (state: AppState) => state.orders.confirmedData;

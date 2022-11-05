@@ -1,12 +1,20 @@
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
-import { all, call, select, takeLatest } from 'redux-saga/effects';
+import { UnwrapPromise } from '@types';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { selectAuthFirebaseUid, selectAuthUserProfile } from 'selectors';
 import { orderApi } from 'services/firebase/apis';
 import { loungeOrderApi } from 'services/firebase/apis/loungeOrder';
 import { isEmpty } from 'utils';
-import { orderSliceName } from '.';
+import {
+  getOrdersByUidFailed,
+  getOrdersByUidRequest,
+  getOrdersByUidSucceed,
+  orderSliceName,
+} from '.';
 /* #region 'async action' */
 export const createOrders = createAction<any>(`${orderSliceName}/createOrders`);
+export const getOrdersByUid = createAction(`${orderSliceName}/getOrdersByUid`);
+
 /* #endregion 'async action' */
 
 function* handleCreateOrders(action: PayloadAction<any>): Generator<any, any, any> {
@@ -42,6 +50,23 @@ function* handleCreateLoungeOrder(orderIdsResponse: { name: string }[], loungeId
   }
 }
 
+function* handleGetOrdersByUid(): any {
+  try {
+    yield put(getOrdersByUidRequest());
+    const uid = yield select(selectAuthFirebaseUid);
+    const orders: UnwrapPromise<ReturnType<typeof orderApi.getOrdersByUserId>> = yield call(
+      orderApi.getOrdersByUserId,
+      uid,
+    );
+    yield put(getOrdersByUidSucceed(orders));
+  } catch (error) {
+    yield put(getOrdersByUidFailed(error));
+  }
+}
+
 export default function OrderSaga() {
-  return [takeLatest(createOrders, handleCreateOrders)];
+  return [
+    takeLatest(createOrders, handleCreateOrders),
+    takeLatest(getOrdersByUid, handleGetOrdersByUid),
+  ];
 }
