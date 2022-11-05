@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Drawer,
   DrawerBody,
@@ -8,47 +9,68 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
+  Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import CardItem from 'components/CardItem';
+import Modal from 'components/Modal';
 import { useAppSelector } from 'hooks';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { selectOrders } from 'selectors';
-import { createOrders } from 'slices/orders/orders.saga';
 
-function OrderDrawer({ isOpen, onClose }: any) {
+function OrderDrawer({ isDrawerOpen, onDrawerClose }: any) {
+  const [selectedItem, setSelectedItem] = useState();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const orders = useAppSelector(selectOrders);
   const ordersList = Object.keys(orders);
-  const dispatch = useDispatch();
-  function handleCreateOrders() {
-    dispatch(createOrders(orders));
-  }
+
+  const handleDeleteItem = (data: any) => {
+    onOpen();
+    setSelectedItem(data);
+  };
   return (
     <>
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="md">
+      <Modal isModalOpen={isOpen} onModalClose={onClose} selectedItem={selectedItem}></Modal>
+      <Drawer isOpen={isDrawerOpen} placement="right" onClose={onDrawerClose} size="md">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>My orders</DrawerHeader>
 
           <DrawerBody>
-            {ordersList.map((tableId: string, index) => {
-              return (
-                <Flex flexDirection="column" key={index}>
-                  {Object.values(orders[tableId]).map((order, id) => {
-                    return <CardItem key={id} data={order} />;
-                  })}
-                </Flex>
-              );
-            })}
+            {ordersList.length > 0 ? (
+              ordersList.map((tableId: string) => {
+                console.log(orders[tableId]);
+                return (
+                  <>
+                    <Flex flexDirection="column">
+                      {Object.values(orders[tableId]).map((order, id) => {
+                        return (
+                          <CardItem
+                            key={id}
+                            data={order}
+                            isInCart
+                            tableId={tableId}
+                            onConfirmDelete={handleDeleteItem}
+                          />
+                        );
+                      })}
+                    </Flex>
+                  </>
+                );
+              })
+            ) : (
+              <Box>
+                <Text>No items to show</Text>
+              </Box>
+            )}
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
+            <Button variant="outline" mr={3} onClick={onDrawerClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue" onClick={handleCreateOrders}>
-              Save
-            </Button>
+            <Button colorScheme="blue">Confirm</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

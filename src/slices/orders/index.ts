@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { OrderDetail, OrderResponse, Status } from '@types';
+
 interface OrderState {
   data: {
     [index: string]: OrderDetail;
@@ -8,7 +9,7 @@ interface OrderState {
   status: Status;
   error: any;
 }
-const initialState: OrderState = {
+const initialState: any = {
   data: {},
   confirmedData: [],
   status: Status.IDLE,
@@ -29,6 +30,25 @@ const ordersSlice = createSlice({
         },
       };
     },
+    editOrderAmount: (state, action: PayloadAction<any>) => {
+      const { tableId, orderId, numberOfIncrease } = action.payload;
+      const isDecreased = numberOfIncrease < 0;
+      const isAmountZero = state.data[tableId]?.[orderId]?.amount === 0;
+
+      if (isDecreased && isAmountZero) return;
+      state.data[tableId] = {
+        ...state.data[tableId],
+        [orderId]: {
+          ...state.data[tableId][orderId],
+          amount: state.data[tableId][orderId].amount + numberOfIncrease,
+        },
+      };
+    },
+    deleteOrder: (state, action: PayloadAction<any>) => {
+      const { tableId, orderId } = action.payload;
+      const { [orderId]: _, ...rest } = state.data[tableId];
+      state.data[tableId] = rest;
+    }
     getOrdersByUidRequest: (state) => {
       state.status = Status.PENDING;
       state.error = null;
@@ -45,7 +65,8 @@ const ordersSlice = createSlice({
   },
 });
 
-export const { addOrder, getOrdersByUidRequest, getOrdersByUidSucceed, getOrdersByUidFailed } =
+export const { addOrder, getOrdersByUidRequest, getOrdersByUidSucceed, getOrdersByUidFailed, editOrderAmount, deleteOrder } =
   ordersSlice.actions;
 export const orderSliceName = ordersSlice.name;
+
 export default ordersSlice.reducer;
