@@ -3,7 +3,6 @@ import LoungeTable from 'components/LoungeTable';
 import { useAppSelector } from 'hooks';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { firebaseCore } from 'pages/_app';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
@@ -34,16 +33,6 @@ const Lounge: NextPage = () => {
     if (isLoggedIn) dispatch(getLounges());
   }, [dispatch, isLoggedIn]);
 
-  useEffect(() => {
-    firebaseCore.loungeRef.on('child_added', (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-        console.log(snapshot.key, snapshot.val());
-      });
-    });
-
-    return () => {};
-  }, []);
-
   async function handleCreateLounge() {
     //TODO: create Modal to submit lounge form.
     // const URL =
@@ -51,6 +40,7 @@ const Lounge: NextPage = () => {
     const URL = url;
     dispatch(createLounge(URL));
   }
+
   return (
     <>
       <Head>
@@ -74,11 +64,6 @@ const Lounge: NextPage = () => {
             <Flex ml={5}>
               <h1>Food Lounge</h1>
             </Flex>
-            {/* <Flex alignSelf='flex-end'>
-              <Button colorScheme='blackAlpha' size='lg' variant='ghost'><FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon></Button>
-              <Button colorScheme='blackAlpha' size='lg' variant='ghost'><FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon></Button>
-              <Button colorScheme='blackAlpha' size='lg' variant='ghost'><FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon></Button>
-            </Flex> */}
           </Flex>
           <Flex flexWrap="wrap" justifyContent="center" columnGap={10} m={5}>
             <Flex key={100} marginBottom={20} flexBasis="30%" justifyContent="center">
@@ -89,7 +74,7 @@ const Lounge: NextPage = () => {
               return (
                 <Flex key={table.lid} marginBottom={20} flexBasis="30%" justifyContent="center">
                   {/* <h4>{table.hostName}</h4> */}
-                  <LoungeTable table={table} name={table.owner}></LoungeTable>
+                  <LoungeTable table={table}></LoungeTable>
                 </Flex>
               );
             })}

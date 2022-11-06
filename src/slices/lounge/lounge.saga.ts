@@ -1,5 +1,5 @@
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
-import { ScrapedLounge } from '@types';
+import { LoungeData, ScrapedLounge } from '@types';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { selectAuthFirebaseUid } from 'selectors';
 import { loungeApi, userLoungeApi } from 'services/firebase/apis';
@@ -21,7 +21,7 @@ function* handleCreateLounge(action: PayloadAction<string>): any {
     const res = yield call(loungeApi.createLounge, submittedData);
     const lid = res.name;
     yield call(userLoungeApi.createUserLounge, uid, lid);
-    yield put(getLounges);
+    yield put(getLounges());
   } else {
     //TODO: catch this case when scraping failed
   }
@@ -29,8 +29,8 @@ function* handleCreateLounge(action: PayloadAction<string>): any {
 
 function* handleGetLounges(): any {
   try {
-    const data = yield call(loungeApi.getLounges);
-    const transformedData = transformObjectToArrayResponse<ScrapedLounge>(data, 'lid');
+    const data = yield call(userLoungeApi.getUserLounge);
+    const transformedData = transformObjectToArrayResponse<LoungeData>(data, 'lid');
     yield put(getLoungeSucceed(transformedData));
   } catch (error: any) {
     yield put(getLoungeFailed(error.message));

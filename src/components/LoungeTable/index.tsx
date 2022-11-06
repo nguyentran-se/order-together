@@ -1,25 +1,21 @@
 import { Box, Flex, Image } from '@chakra-ui/react';
+import { LoungeData } from '@types';
 import Link from 'next/link';
 import { isEmpty } from 'utils';
 import styles from './index.module.scss';
 
 interface loungeTableProps {
-  name?: string;
+  table: LoungeData;
   available?: boolean;
   numberOfParticipants?: number;
-  tableInfo?: any;
 }
 
-function LoungeTable({
-  table,
-  name,
-  available = true,
-  numberOfParticipants = 0,
-  tableInfo = {},
-}: any) {
+function LoungeTable({ table, available = true, numberOfParticipants = 0 }: loungeTableProps) {
   // console.log(table);
   const data = table.entities[table.activeMerchantID];
+  const host = table.host;
   if (isEmpty(data)) return <>Loading</>;
+
   return (
     <Link href={'/lounge/' + table?.lid}>
       <a>
@@ -37,14 +33,14 @@ function LoungeTable({
                 <Box>
                   <h2>{data?.name}</h2>
                 </Box>
-                <Box>Host by: {data?.host}</Box>
+                <Box>Host by: {host.name}</Box>
                 <Box>Rating: {data?.rating}</Box>
               </Flex>
             </Flex>
           ) : (
             <></>
           )}
-          <h3>{name}</h3>
+          {/* <h3>{host.name}</h3> */}
         </Box>
       </a>
     </Link>

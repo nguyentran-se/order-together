@@ -15,7 +15,9 @@ class Firebase {
   public userRef!: firebase.database.Reference;
   public loungeRef!: firebase.database.Reference;
   public orderRef!: firebase.database.Reference;
+  //n-n
   public loungeOrderRef!: firebase.database.Reference;
+  public userLoungeRef!: firebase.database.Reference;
   constructor() {
     console.log('%c firebase - initialize', 'color: #3182ce;');
     if (!this.app && !firebase.apps.length) {
@@ -32,6 +34,7 @@ class Firebase {
     this.loungeRef = this.dbRef.child(Collections.LOUNGE);
     this.orderRef = this.dbRef.child(Collections.ORDER);
     this.loungeOrderRef = this.dbRef.child(Collections.LOUNGE_ORDER);
+    this.userLoungeRef = this.dbRef.child(Collections.USER_LOUNGE);
   }
 
   initializeConfiguration() {

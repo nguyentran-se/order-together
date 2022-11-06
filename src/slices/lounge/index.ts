@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ScrapedLounge, Status } from '@types';
-
+import { LoungeData, Status } from '@types';
 interface LoungeState {
   status: Status;
   error: any;
-  data: ScrapedLounge[];
+  data: LoungeData[];
 }
 const initialState: LoungeState = {
   data: [],
@@ -18,7 +17,7 @@ const loungeSlice = createSlice({
     getLoungeRequest: (state) => {
       state.status = Status.PENDING;
     },
-    getLoungeSucceed: (state, action: PayloadAction<ScrapedLounge[]>) => {
+    getLoungeSucceed: (state, action: PayloadAction<LoungeData[]>) => {
       state.status = Status.RESOLVED;
       state.error = null;
       state.data = action.payload;
