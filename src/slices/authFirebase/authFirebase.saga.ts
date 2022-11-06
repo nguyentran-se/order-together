@@ -18,14 +18,15 @@ function* handleAuthFirebase(action: PayloadAction<UserSlack>): Generator<any, a
   yield put(authFirebaseRequest());
   const userSlack = action.payload;
   const { email, userId } = userSlack;
+  console.log(email, ' ', userId);
   if (!email || !userId) throw new Error('Missing user information');
-
   try {
     const user: User = yield call(firebaseCore.createUserAccount, email, userId);
     console.log('createUserAccount - Firebase user: ', user);
     yield call(handleSaveAuth, user, userSlack);
   } catch (error: any) {
     yield put(authFirebaseFailed(error.message));
+    console.log(error);
     switch (error.code) {
       case 'auth/email-already-in-use':
         yield call(handleEmailAlreadyInUse, email, userId, userSlack);
@@ -67,7 +68,7 @@ function transformUserFirebase(user: User): UserFirebase {
 
 function* handleGetUserSlackInfor(action: PayloadAction<string>): any {
   const data = yield call(userApi.getUserSlackInfor, action.payload);
-  yield put(loginSucceed(data.slackInfo as UserSlack));
+  yield put(loginSucceed(data as UserSlack));
 }
 export default function authFirebaseSaga() {
   return [

@@ -51,10 +51,6 @@ const signinBtn = (isLoading = false) => {
   );
 };
 
-// const avatar = (url: string) => {
-//   return <Avatar src={url} />;
-// };
-
 function Navbar() {
   const status = useAppSelector(selectAuthStatus);
   const isLoading = status === Status.PENDING;
@@ -66,21 +62,6 @@ function Navbar() {
   return (
     <Box className={styles.Nav}>
       {
-        // !isLoggedIn &&
-        // ? (
-        //   <Flex flexWrap="wrap" alignItems={"center"} style={{'background': 'lightsteelblue'}}>
-        //     <Show above="lg">
-        //       <Box className={styles["nav--logo__small"]}>
-        //         <Link href="/">ORDER TOGETHER</Link>
-        //       </Box>
-        //       <Spacer />
-        //       <Box style={{'textAlign': 'center'}}>
-        //         {avatar(userProfile.picture)}
-        //         <p>Hi, {userProfile.given_name} {userProfile.family_name}</p>
-        //       </Box>
-        //     </Show>
-        //   </Flex>
-        // ) :
         <>
           <Flex flexWrap="wrap" alignItems={'center'}>
             <Show above="lg">

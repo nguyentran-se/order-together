@@ -5,7 +5,7 @@ import { selectAuthStatus } from 'selectors';
 
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import Head from 'next/head';
-import { selectIsLoggedIn } from 'selectors/common.selector';
+import { selectIsLoggedIn } from 'selectors';
 config.autoAddCss = false;
 function Header() {
   const status = useAppSelector(selectAuthStatus);

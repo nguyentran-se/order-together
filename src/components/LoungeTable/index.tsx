@@ -1,29 +1,29 @@
 import { Box, Flex, Image } from '@chakra-ui/react';
+import { LoungeData } from '@types';
 import Link from 'next/link';
+import { isEmpty } from 'utils';
 import styles from './index.module.scss';
 
 interface loungeTableProps {
-  name?: string;
+  table: LoungeData;
   available?: boolean;
   numberOfParticipants?: number;
-  tableInfo?: any;
 }
 
-function LoungeTable({
-  name,
-  available = true,
-  numberOfParticipants = 0,
-  tableInfo = {},
-}: loungeTableProps) {
-  // console.log(tableInfo);
+function LoungeTable({ table, available = true, numberOfParticipants = 0 }: loungeTableProps) {
+  // console.log(table);
+  const data = table.entities[table.activeMerchantID];
+  const host = table.host;
+  if (isEmpty(data)) return <>Loading</>;
+
   return (
-    <Link href={'/lounge/' + tableInfo.ID}>
+    <Link href={'/lounge/' + table?.lid}>
       <a>
         <Box className={`${styles.LoungeTable}`}>
-          {Object.keys(tableInfo).length > 0 ? (
+          {Object.keys(data || {}).length > 0 ? (
             <Flex className={styles['LoungeTable__Overview']}>
               <Flex className={styles['LoungeTable__Overview--Image']}>
-                <Image src={tableInfo.photoHref} alt="restaurant"></Image>
+                <Image src={data?.photoHref} alt="restaurant"></Image>
               </Flex>
               <Flex
                 className={styles['LoungeTable__Overview--Info']}
@@ -31,16 +31,16 @@ function LoungeTable({
                 alignItems="flex-start"
               >
                 <Box>
-                  <h2>{tableInfo.name}</h2>
+                  <h2>{data?.name}</h2>
                 </Box>
-                <Box>Host by: {tableInfo.host}</Box>
-                <Box>Rating: {tableInfo.rating}</Box>
+                <Box>Host by: {host.name}</Box>
+                <Box>Rating: {data?.rating}</Box>
               </Flex>
             </Flex>
           ) : (
             <></>
           )}
-          <h3>{name}</h3>
+          {/* <h3>{host.name}</h3> */}
         </Box>
       </a>
     </Link>

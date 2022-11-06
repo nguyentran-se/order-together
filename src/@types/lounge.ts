@@ -1,3 +1,5 @@
+import { UserSlack } from './slack';
+
 export type ScrapedLounge = {
   activeMerchantID: string;
   cuisine: any;
@@ -6,4 +8,6 @@ export type ScrapedLounge = {
   loadings: any;
   menuRefreshedInfoBarVisible: boolean;
   owner?: string;
+  lid?: string;
 };
+export type LoungeData = ScrapedLounge & { host: UserSlack };

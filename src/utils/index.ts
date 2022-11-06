@@ -1,4 +1,4 @@
-import { ObjectFirebaseResponse } from '@types';
+import { ObjectFirebaseResponse, UserSlack } from '@types';
 
 export const breakpoints = {
   sm: '(max-width:320px)',
@@ -9,7 +9,9 @@ export const breakpoints = {
 };
 
 export const isEmpty = (obj: any) => {
-  return obj && Object.keys(obj).length === 0 && Object.getPrototypeOf(obj) === Object.prototype;
+  if (!obj) return true;
+  if (Array.isArray(obj)) return obj.length === 0;
+  return Object.keys(obj).length === 0 && Object.getPrototypeOf(obj) === Object.prototype;
 };
 
 export const transformObjectToArrayResponse = <T>(
@@ -23,3 +25,15 @@ export const transformObjectToArrayResponse = <T>(
   }, []);
 };
 export * from './localStorage';
+export const transformUserSlackData = (data: any): UserSlack => {
+  const {
+    'https://slack.com/team_id': teamId,
+    'https://slack.com/user_id': userId,
+    'https://slack.com/team_name': teamName,
+    'https://slack.com/team_domain': teamDomain,
+    'https://slack.com/team_image_230': teamImage,
+    'https://slack.com/team_image_default': teamImageDefault,
+    ...rest
+  } = data;
+  return { ...rest, userId, teamId, teamDomain, teamImage, teamImageDefault };
+};

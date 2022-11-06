@@ -1,39 +1,29 @@
+import { Avatar, Box, Button, Flex, IconButton } from '@chakra-ui/react';
 import {
-  Avatar,
-  Box,
-  Button,
-  ButtonGroup,
-  Flex,
-  Icon,
-  IconButton,
-  useBoolean,
-} from '@chakra-ui/react';
-import Logo from 'components/Logo';
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectAuthUserProfile } from 'selectors';
-import styles from './index.module.scss';
-import {
-  faHouse,
-  faCartShopping,
-  faLandmark,
-  faHeart,
   faArrowLeft,
   faArrowRight,
+  faCartShopping,
+  faHeart,
+  faHouse,
+  faLandmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useAppSelector } from 'hooks';
+import Logo from 'components/Logo';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import styles from './index.module.scss';
 
 const avatar = (url: string) => {
   return <Avatar src={url} size="xl" showBorder />;
 };
 function Sidebar() {
   const [isSidebarExpanded, onSidebarExpand] = useState(true);
-  const userProfile = useAppSelector(selectAuthUserProfile);
+  const router = useRouter();
   const toggleSidebarExpand = () => {
     onSidebarExpand(!isSidebarExpanded);
   };
+  const isActive = (path: string) => router.pathname.includes(path);
   return (
     <div
       style={{
@@ -44,82 +34,99 @@ function Sidebar() {
       <Flex
         flexWrap="wrap"
         className={`${styles.Sidebar} ${isSidebarExpanded ? '' : styles['Sidebar__minimized']}`}
-        style={{ background: 'brand.500' }}
+        // style={{ background: 'brand.500' }}
+        // color="gray.700"
         position="relative"
       >
-        <Flex position="absolute" transform="translateX(50%)" right={0} top="25%">
+        <Flex position="absolute" transform="translateX(50%)" right={0} top="5%">
           <IconButton
             aria-label="LeftBtn"
-            colorScheme="blue"
+            borderRadius="50%"
             className={styles['Sidebar--btn__resize']}
             onClick={() => toggleSidebarExpand()}
           >
             <FontAwesomeIcon
+              size="xs"
               icon={isSidebarExpanded ? faArrowLeft : faArrowRight}
             ></FontAwesomeIcon>
           </IconButton>
         </Flex>
         <Flex direction="column" width="full">
           <Flex direction="column">
-            <Flex alignSelf="center" marginBottom={5}>
-              <Logo flexGrow={0} size="md" color="dark" minimized={!isSidebarExpanded}></Logo>
+            <Flex alignSelf="center" h="56px">
+              <Logo flexGrow={0} size="md" color="light" minimized={!isSidebarExpanded}></Logo>
             </Flex>
-            <Flex alignSelf="center" marginBottom={5}>
-              <Box style={{ textAlign: 'center' }}>
-                {avatar(userProfile.picture as string)}
-                <p style={{}}>
-                  Hi {userProfile?.givenName} {userProfile?.familyName}
-                </p>
-              </Box>
-            </Flex>
+
+            {/* 1st Sidebar Section */}
             <Flex
               className={styles['Sidebar--section']}
               direction="column"
               alignItems={isSidebarExpanded ? '' : 'center'}
             >
               <Box className={styles['Sidebar--divider']}></Box>
-              <Button className={styles['Sidebar--btn']} colorScheme="blue">
-                <Link href={'/dashboard'}>
+              <Link href={'/dashboard'}>
+                <Button
+                  className={`${styles['Sidebar--btn']} ${
+                    isActive('dashboard') ? styles['active'] : ''
+                  }`}
+                  colorScheme="blue"
+                >
                   <a>
                     <FontAwesomeIcon icon={faHouse} />
                     {isSidebarExpanded ? <span>Dashboard</span> : ''}
                   </a>
-                </Link>
-              </Button>
-              <Button className={styles['Sidebar--btn']} colorScheme="blue">
-                <Link href={'/orders'}>
+                </Button>
+              </Link>
+              <Link href={'/orders'}>
+                <Button
+                  className={`${styles['Sidebar--btn']} ${
+                    isActive('orders') ? styles['active'] : ''
+                  }`}
+                  colorScheme="blue"
+                >
                   <a>
                     <FontAwesomeIcon icon={faCartShopping} />
                     {isSidebarExpanded ? <span>My orders</span> : ''}
                   </a>
-                </Link>
-              </Button>
-              {/* <Button className={styles["Sidebar--btn"]} colorScheme="blue">
-            Food Lounge
-          </Button> */}
+                </Button>
+              </Link>
             </Flex>
+
+            {/* Divider Line */}
             <Box className={styles['Sidebar--divider']}></Box>
+
+            {/* 2nd Sidebar Section */}
             <Flex
               className={styles['Sidebar--section']}
               direction="column"
               alignItems={isSidebarExpanded ? '' : 'center'}
             >
-              <Button className={styles['Sidebar--btn']} colorScheme="blue">
-                <Link href={'/lounge'}>
+              <Link href={'/lounge'}>
+                <Button
+                  className={`${styles['Sidebar--btn']} ${
+                    isActive('lounge') ? styles['active'] : ''
+                  }`}
+                  colorScheme="blue"
+                >
                   <a>
                     <FontAwesomeIcon icon={faLandmark} />
                     {isSidebarExpanded ? <span>Food Lounge</span> : ''}
                   </a>
-                </Link>
-              </Button>
-              <Button className={styles['Sidebar--btn']} colorScheme="blue">
-                <Link href={'/lounge'}>
+                </Button>
+              </Link>
+              <Link href={''}>
+                <Button
+                  className={`${styles['Sidebar--btn']} ${
+                    isActive('/favorite') ? styles['active'] : ''
+                  }`}
+                  colorScheme="blue"
+                >
                   <a>
                     <FontAwesomeIcon icon={faHeart} />
                     {isSidebarExpanded ? <span>Favorites</span> : ''}
                   </a>
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </Flex>
           </Flex>
         </Flex>

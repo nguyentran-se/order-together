@@ -1,5 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import 'globals';
+import 'assets/styles/globals.scss';
+import AuthGuard from 'guards/AuthGuard';
 import Layout from 'layout';
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
@@ -21,9 +22,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <ChakraProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <AuthGuard>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </AuthGuard>
       </ChakraProvider>
     </Provider>
   );
