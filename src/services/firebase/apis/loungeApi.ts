@@ -23,7 +23,10 @@ export const loungeApi = {
     return axiosFirebase.put(url, data);
   },
   getScrapedLounge: (url: string) => {
+    const __DEV__ = process.env.NODE_ENV;
+    const API = __DEV__ ? '/api/menu' : 'https://ot-s.vercel.app/api/scraping';
     const data = { url };
-    return axios.post('/api/menu', data);
+    const params = { url };
+    return axios.get(API, { params });
   },
 };

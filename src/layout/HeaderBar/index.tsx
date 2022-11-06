@@ -25,7 +25,7 @@ import styles from './index.module.scss';
 function HeaderBar() {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const userProfile = useAppSelector(selectAuthUserProfile);
-  const numberOfOrders = useAppSelector(selectNumberOfOrders);
+  const numberOfOrders: any = useAppSelector(selectNumberOfOrders);
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (

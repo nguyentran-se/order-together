@@ -6,8 +6,7 @@ type Data = {
   data: string | null;
 };
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  // const url = req.query.url as string;
-  const url = req.body.url;
+  const url = req.query.url as string;
   console.log('start scraping: ', url);
 
   try {

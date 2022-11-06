@@ -51,7 +51,7 @@ function CardItem({ data, isInCart = false, tableId, onConfirmDelete }: any) {
         <Box className={styles.TableCard__Item}>
           <Box>
             <Box className={styles.TableCard__ItemPhoto}>
-              <Image src={data.imgHref}></Image>
+              <Image src={data.imgHref} alt="restaurent"></Image>
             </Box>
           </Box>
           <Flex className={styles.TableCard__ItemContent} w="full">
