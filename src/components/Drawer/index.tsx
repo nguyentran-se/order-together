@@ -31,7 +31,13 @@ function OrderDrawer({ isDrawerOpen, onDrawerClose }: any) {
   return (
     <>
       <Modal isModalOpen={isOpen} onModalClose={onClose} selectedItem={selectedItem}></Modal>
-      <Drawer isOpen={isDrawerOpen} placement="right" onClose={onDrawerClose} size="md">
+      <Drawer
+        isOpen={isDrawerOpen}
+        placement="right"
+        onClose={onDrawerClose}
+        size="md"
+        blockScrollOnMount={false}
+      >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
@@ -39,24 +45,22 @@ function OrderDrawer({ isDrawerOpen, onDrawerClose }: any) {
 
           <DrawerBody>
             {ordersList.length > 0 ? (
-              ordersList.map((tableId: string) => {
+              ordersList.map((tableId: string, index) => {
                 console.log(orders[tableId]);
                 return (
-                  <>
-                    <Flex flexDirection="column">
-                      {Object.values(orders[tableId]).map((order, id) => {
-                        return (
-                          <CardItem
-                            key={id}
-                            data={order}
-                            isInCart
-                            tableId={tableId}
-                            onConfirmDelete={handleDeleteItem}
-                          />
-                        );
-                      })}
-                    </Flex>
-                  </>
+                  <Flex flexDirection="column" key={index}>
+                    {Object.values(orders[tableId]).map((order, id) => {
+                      return (
+                        <CardItem
+                          key={id}
+                          data={order}
+                          isInCart
+                          tableId={tableId}
+                          onConfirmDelete={handleDeleteItem}
+                        />
+                      );
+                    })}
+                  </Flex>
                 );
               })
             ) : (

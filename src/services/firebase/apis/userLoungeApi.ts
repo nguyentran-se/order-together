@@ -1,4 +1,4 @@
-import { Collections, ScrapedLounge, UserSlack } from '@types';
+import { Collections, LoungeData, ScrapedLounge, UserSlack } from '@types';
 import { firebaseCore } from 'pages/_app';
 import { transformObjectToArrayResponse } from 'utils';
 import axiosFirebase from '../axiosFirebase';
@@ -12,7 +12,7 @@ export const userLoungeApi = {
   getUserLounge: async () => {
     let lounges: ScrapedLounge[] = [];
     let users: UserSlack[] = [];
-    let data: any[] = [];
+    let data: LoungeData[] = [];
     await firebaseCore.loungeRef.once('value', (snapshot) => {
       lounges = transformObjectToArrayResponse<ScrapedLounge>(snapshot.val(), 'lid');
     });

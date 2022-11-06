@@ -7,7 +7,7 @@ export type ScrapedLounge = {
   errors: any;
   loadings: any;
   menuRefreshedInfoBarVisible: boolean;
-  owner?: string;
+  uid?: string;
   lid?: string;
 };
 export type LoungeData = ScrapedLounge & { host: UserSlack };
