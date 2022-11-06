@@ -11,17 +11,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from 'components/Logo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import styles from './index.module.scss';
 
 const avatar = (url: string) => {
   return <Avatar src={url} size="xl" showBorder />;
 };
-function Sidebar() {
-  const [isSidebarExpanded, onSidebarExpand] = useState(true);
+function Sidebar({ isSidebarExpanded, setIsSidebarExpanded }: any) {
   const router = useRouter();
   const toggleSidebarExpand = () => {
-    onSidebarExpand(!isSidebarExpanded);
+    setIsSidebarExpanded(!isSidebarExpanded);
   };
   const isActive = (path: string) => router.pathname.includes(path);
   return (
@@ -38,7 +36,7 @@ function Sidebar() {
         // color="gray.700"
         position="relative"
       >
-        <Flex position="absolute" transform="translateX(50%)" right={0} top="5%">
+        <Flex position="absolute" transform="translateX(50%)" right={0} top="44px" zIndex={99}>
           <IconButton
             aria-label="LeftBtn"
             borderRadius="50%"

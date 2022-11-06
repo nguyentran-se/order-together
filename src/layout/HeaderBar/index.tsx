@@ -22,7 +22,7 @@ import { selectNumberOfOrders } from 'selectors/orders.selector';
 import { logOut } from 'utils/logout';
 import styles from './index.module.scss';
 
-function HeaderBar() {
+function HeaderBar({ isSidebarExpanded }: any) {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const userProfile = useAppSelector(selectAuthUserProfile);
   const numberOfOrders: any = useAppSelector(selectNumberOfOrders);
@@ -39,6 +39,13 @@ function HeaderBar() {
             h="66px"
             p="0 20px"
             borderBottom="solid #eee 2px"
+            // style={{
+            // position: 'fixed',
+            // left: isSidebarExpanded ? 300 : '5rem',
+            // right: 0,
+            // background: '#EDF2F7',
+            // transition: 'left .2s ease-out',
+            // }}
           >
             <Box p="20px">
               <Text fontSize="32px">{router.pathname}</Text>
