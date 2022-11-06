@@ -1,0 +1,14 @@
+.Main {
+  width: 100%;
+  padding: 20px;
+  height: 100vh;
+  overflow: hidden auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--chakra-colors-blue-400);
+  }
+}

@@ -7,7 +7,7 @@ import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import Head from 'next/head';
 import { selectIsLoggedIn } from 'selectors';
 config.autoAddCss = false;
-function Header() {
+function Header({ isSidebarExpanded, setIsSidebarExpanded }: any) {
   const status = useAppSelector(selectAuthStatus);
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const isShowSidebar = isLoggedIn;
@@ -16,7 +16,14 @@ function Header() {
       <Head>
         <style>{dom.css()}</style>
       </Head>
-      {isShowSidebar ? <Sidebar /> : <Navbar />}
+      {isShowSidebar ? (
+        <Sidebar
+          isSidebarExpanded={isSidebarExpanded}
+          setIsSidebarExpanded={setIsSidebarExpanded}
+        />
+      ) : (
+        <Navbar />
+      )}
     </>
   );
 }
