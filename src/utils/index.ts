@@ -18,6 +18,7 @@ export const transformObjectToArrayResponse = <T>(
   data: ObjectFirebaseResponse,
   idKey: string,
 ): T[] => {
+  if (!data) return [];
   return Object.keys(data).reduce((result, currentKey) => {
     const currentObj = data[currentKey as keyof typeof data];
     const updatedObj = Object.assign(currentObj, { [idKey]: currentKey });
