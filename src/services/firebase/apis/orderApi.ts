@@ -23,6 +23,8 @@ export const orderApi = {
           }
         });
       });
+    console.log(orders);
+
     return orders;
   },
 };
