@@ -1,15 +1,22 @@
 import { createAction, PayloadAction } from '@reduxjs/toolkit';
-import { ScrapedLounge } from '@types';
+import { Callback, ScrapedLounge } from '@types';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { selectAuthFirebaseUid } from 'selectors';
 import { loungeApi, userLoungeApi } from 'services/firebase/apis';
 import { getLoungeFailed, getLoungeSucceed, loungeSliceName } from '.';
 
-export const createLounge = createAction<string>(`${loungeSliceName}/createLounge`);
+export const createLounge = createAction<CreateLoungeInterface>(`${loungeSliceName}/createLounge`);
 export const getLounges = createAction(`${loungeSliceName}/getLounges`);
 
-function* handleCreateLounge(action: PayloadAction<string>): any {
-  const URL = action.payload;
+interface CreateLoungeInterface {
+  url: string;
+  succeedCallback: Callback;
+  failedCallback: Callback;
+}
+
+function* handleCreateLounge(action: PayloadAction<CreateLoungeInterface>): any {
+  const URL = action.payload.url;
+  const { succeedCallback, failedCallback } = action.payload;
   const response = yield call(loungeApi.getScrapedLounge, URL);
   const data: ScrapedLounge = response.data;
   const loungeId = data.activeMerchantID;
@@ -20,9 +27,11 @@ function* handleCreateLounge(action: PayloadAction<string>): any {
     const res = yield call(loungeApi.createLounge, submittedData);
     const lid = res.name;
     yield call(userLoungeApi.createUserLounge, uid, lid);
+    yield call(succeedCallback);
     yield put(getLounges());
   } else {
     //TODO: catch this case when scraping failed
+    yield call(failedCallback);
   }
 }
 

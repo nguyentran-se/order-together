@@ -44,6 +44,9 @@ const ordersSlice = createSlice({
         },
       };
     },
+    deleteALlOrders: (state) => {
+      state.data = {};
+    },
     deleteOrder: (state, action: PayloadAction<any>) => {
       const { tableId, orderId } = action.payload;
       const { [orderId]: _, ...rest } = state.data[tableId];
@@ -72,6 +75,7 @@ export const {
   getOrdersByUidFailed,
   editOrderAmount,
   deleteOrder,
+  deleteALlOrders,
 } = ordersSlice.actions;
 export const orderSliceName = ordersSlice.name;
 

@@ -6,6 +6,7 @@ import { orderApi } from 'services/firebase/apis';
 import { loungeOrderApi } from 'services/firebase/apis/loungeOrder';
 import { isEmpty } from 'utils';
 import {
+  deleteALlOrders,
   getOrdersByUidFailed,
   getOrdersByUidRequest,
   getOrdersByUidSucceed,
@@ -20,7 +21,7 @@ export const getOrdersByUid = createAction(`${orderSliceName}/getOrdersByUid`);
 function* handleCreateOrders(action: PayloadAction<any>): Generator<any, any, any> {
   const uid = yield select(selectAuthFirebaseUid);
   const buyerInfo = yield select(selectAuthUserProfile);
-  const loungeOrders = action.payload;
+  const loungeOrders = action.payload.loungeOrders;
   const loungeIds = Object.keys(loungeOrders);
   const orderIdsResponse = yield all(
     loungeIds.map((t) => {
@@ -38,6 +39,8 @@ function* handleCreateOrders(action: PayloadAction<any>): Generator<any, any, an
     }),
   );
   yield call(handleCreateLoungeOrder, orderIdsResponse, loungeIds);
+  yield put(deleteALlOrders());
+  action.payload.callback();
 }
 
 function* handleCreateLoungeOrder(orderIdsResponse: { name: string }[], loungeIds: string[]) {
