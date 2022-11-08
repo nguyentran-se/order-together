@@ -26,7 +26,9 @@ function* handleCreateOrders(action: PayloadAction<any>): Generator<any, any, an
     loungeIds.map((t) => {
       const orderDetails = loungeOrders[t];
       const submittedOrderData = {
-        ...orderDetails,
+        confirmed: {
+          ...orderDetails,
+        },
         buyer: {
           ...buyerInfo,
           uid,
