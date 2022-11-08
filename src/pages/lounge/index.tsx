@@ -1,8 +1,12 @@
-import { Button, Flex, Input } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Input, Stack, Text } from '@chakra-ui/react';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LoungeTable from 'components/LoungeTable';
+import ModalWrapper from 'components/Modal_new';
 import { useAppSelector } from 'hooks';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { firebaseCore } from 'pages/_app';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
@@ -24,6 +28,13 @@ const Lounge: NextPage = () => {
   const dispatch = useDispatch();
 
   const [url, setUrl] = useState('');
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isTableCreating, setTableCreating] = useState({
+    isLoading: false,
+    isSucceed: false,
+  });
+
+  const title = 'Tạo phòng';
 
   useEffect(() => {
     if (uid && isEmpty(userSlack)) dispatch(getUserSlackInfor(uid));
@@ -33,12 +44,45 @@ const Lounge: NextPage = () => {
     if (isLoggedIn) dispatch(getLounges());
   }, [dispatch, isLoggedIn]);
 
+  useEffect(() => {
+    firebaseCore.loungeRef.on('child_added', (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        console.log(snapshot.key, snapshot.val());
+      });
+    });
+
+    return () => {};
+  }, []);
+
+  const onCreateLoungeSucceed = () => {
+    setTableCreating({
+      isLoading: false,
+      isSucceed: true,
+    });
+    return;
+  };
+
+  const onCreateLoungeFailed = () => {
+    setTableCreating({
+      isLoading: false,
+      isSucceed: false,
+    });
+    return;
+  };
+
   async function handleCreateLounge() {
-    //TODO: create Modal to submit lounge form.
-    // const URL =
-    //   'https://food.grab.com/vn/vi/restaurant/c%C6%A1m-t%E1%BA%A5m-c%C6%A1m-s%C6%B0%E1%BB%9Dn-n%C6%B0%E1%BB%9Bng-l%C3%A2m-th%C3%BAy-delivery/5-C3E3WAAAERLXRN';
     const URL = url;
-    dispatch(createLounge(URL));
+    setTableCreating({
+      ...isTableCreating,
+      isLoading: true,
+    });
+    dispatch(
+      createLounge({
+        url: URL,
+        succeedCallback: onCreateLoungeSucceed,
+        failedCallback: onCreateLoungeFailed,
+      }),
+    );
   }
 
   return (
@@ -48,31 +92,60 @@ const Lounge: NextPage = () => {
         <meta name="description" content="Lounge" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Bao bao</h1>
-      <Input
-        colorScheme={'blackAlpha'}
-        onChange={(e) => {
-          setUrl(e.target.value);
-        }}
-      ></Input>
-      <Button onClick={handleCreateLounge} colorScheme="blue">
-        Create lounge
-      </Button>
+      <Flex justifyContent="space-between">
+        <Box>
+          <Heading variant="custom" size="xl">
+            Hôm nay ăn gì
+          </Heading>
+        </Box>
+        <Box>
+          <Button onClick={() => setModalOpen(true)} colorScheme="blue">
+            Tạo phòng +
+          </Button>
+        </Box>
+      </Flex>
+      <ModalWrapper isModalOpen={isModalOpen} setModalOpen={setModalOpen} title={title}>
+        <Stack>
+          <Box>
+            <Text>Foodstore link:</Text>
+          </Box>
+
+          <Flex>
+            <Input
+              colorScheme={'blackAlpha'}
+              placeholder="Put a grab link here"
+              onChange={(e) => {
+                setUrl(e.target.value);
+              }}
+              marginRight="5px"
+            ></Input>
+            {isTableCreating.isSucceed ? (
+              <Button
+                onClick={() => {}}
+                colorScheme="whatsapp"
+                isLoading={isTableCreating.isLoading}
+              >
+                Done <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+              </Button>
+            ) : (
+              <Button
+                onClick={handleCreateLounge}
+                colorScheme="blue"
+                isLoading={isTableCreating.isLoading}
+              >
+                Create
+              </Button>
+            )}
+          </Flex>
+        </Stack>
+      </ModalWrapper>
+
       <Flex flexWrap="wrap" className={styles.Lounge}>
         <Flex direction="column" width="full">
-          <Flex height={20} width={'full'} alignItems={'center'} backgroundColor="ButtonFace">
-            <Flex ml={5}>
-              <h1>Food Lounge</h1>
-            </Flex>
-          </Flex>
-          <Flex flexWrap="wrap" justifyContent="center" columnGap={10} m={5}>
-            <Flex key={100} marginBottom={20} flexBasis="30%" justifyContent="center">
-              {/* <h4>{table.hostName}</h4> */}
-              {/* <LoungeTable tableInfo={dummyOverviewData}></LoungeTable> */}
-            </Flex>
+          <Flex flexWrap="wrap" justifyContent="flex-start" columnGap={10} m={5}>
             {lounge.map((table) => {
               return (
-                <Flex key={table.lid} marginBottom={20} flexBasis="30%" justifyContent="center">
+                <Flex key={table.lid} marginBottom={20} flexBasis="30%" justifyContent="flex-start">
                   {/* <h4>{table.hostName}</h4> */}
                   <LoungeTable table={table}></LoungeTable>
                 </Flex>

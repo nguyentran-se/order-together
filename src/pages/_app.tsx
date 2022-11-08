@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import Firebase from 'services/firebase';
 import Slack from 'services/slack';
 import store from 'store';
+import theme from 'utils/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);
@@ -21,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <AuthGuard>
           <Layout>
             <Component {...pageProps} />
