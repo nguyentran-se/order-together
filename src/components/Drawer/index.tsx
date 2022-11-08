@@ -17,16 +17,20 @@ import Modal from 'components/Modal';
 import { useAppSelector } from 'hooks';
 import { useState } from 'react';
 import { selectOrders } from 'selectors';
-
+import { createOrders } from 'slices/orders/orders.saga';
+import { useAppDispatch } from 'store';
 function OrderDrawer({ isDrawerOpen, onDrawerClose }: any) {
   const [selectedItem, setSelectedItem] = useState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const orders = useAppSelector(selectOrders);
   const ordersList = Object.keys(orders);
-
+  const dispatch = useAppDispatch();
   const handleDeleteItem = (data: any) => {
     onOpen();
     setSelectedItem(data);
+  };
+  const handleConfirmOrders = () => {
+    dispatch(createOrders(orders));
   };
   return (
     <>
@@ -46,7 +50,6 @@ function OrderDrawer({ isDrawerOpen, onDrawerClose }: any) {
           <DrawerBody>
             {ordersList.length > 0 ? (
               ordersList.map((tableId: string, index) => {
-                console.log(orders[tableId]);
                 return (
                   <Flex flexDirection="column" key={index}>
                     {Object.values(orders[tableId]).map((order, id) => {
@@ -74,7 +77,9 @@ function OrderDrawer({ isDrawerOpen, onDrawerClose }: any) {
             <Button variant="outline" mr={3} onClick={onDrawerClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue">Confirm</Button>
+            <Button colorScheme="blue" onClick={handleConfirmOrders}>
+              Confirm
+            </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
