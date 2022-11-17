@@ -84,7 +84,7 @@ function Navbar() {
                 </Box>
                 <Box className={styles['Nav--menu-btn']} margin={10}>
                   <Link href="/">
-                    <a
+                    <span
                       onClick={(e) => {
                         e.preventDefault();
                         onToggleNavMenu();
@@ -97,7 +97,7 @@ function Navbar() {
                         w={10}
                         h={10}
                       ></Icon> */}
-                    </a>
+                    </span>
                   </Link>
                 </Box>
               </Show>
@@ -107,7 +107,7 @@ function Navbar() {
                 </Box>
                 <Box className={styles['Nav--menu-btn']} margin={5}>
                   <Link href="/">
-                    <a
+                    <span
                       onClick={(e) => {
                         e.preventDefault();
                         onToggleNavMenu();
@@ -120,7 +120,7 @@ function Navbar() {
                         w={8}
                         h={8}
                       ></Icon> */}
-                    </a>
+                    </span>
                   </Link>
                 </Box>
               </Show>

@@ -21,8 +21,8 @@ $--white: #fff;
   border-right: 2px solid #eee;
   transition: ease-in-out 0.2s;
 
-  &__expanded {
-  }
+  // &__expanded {
+  // }
 
   &__minimized {
     max-width: 5rem;
@@ -63,14 +63,18 @@ $--white: #fff;
       color: $--primary !important;
     }
   }
+  &--btn {
+    width: 100%;
+    margin-bottom: 6px;
+  }
   &--btn:hover {
     background-color: $--blue-100 !important;
     color: $--primary !important;
   }
 
-  &--section {
-    // margin-top: 1rem;
-  }
+  // &--section {
+  //   // margin-top: 1rem;
+  // }
 
   &--divider {
     margin-top: 10px;
