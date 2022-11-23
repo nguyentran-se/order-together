@@ -6,6 +6,7 @@ import ModalWrapper from 'components/Modal_new';
 import { useAppSelector } from 'hooks';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { firebaseCore } from 'pages/_app';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
