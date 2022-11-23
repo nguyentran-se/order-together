@@ -15,6 +15,7 @@ interface loungeTableProps {
 
 function LoungeTable({ table, name }: any) {
   const data = table.entities[table.activeMerchantID];
+  const host = table.host;
   if (isEmpty(data)) return <>Loading</>;
 
   return (
@@ -46,7 +47,6 @@ function LoungeTable({ table, name }: any) {
                 <Box>
                   <ActiveAvatarGroup></ActiveAvatarGroup>
                 </Box>
-
               </Flex>
             </Flex>
           </Flex>

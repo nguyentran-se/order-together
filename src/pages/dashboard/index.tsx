@@ -1,5 +1,22 @@
-import { Heading, Table, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from '@chakra-ui/react';
-import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import {
+  Heading,
+  Table,
+  TableContainer,
+  Tag,
+  TagLabel,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react';
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
 import { MappedHostOrders } from '@types';
 import clsx from 'clsx';
 import { useAppSelector } from 'hooks';
@@ -9,8 +26,58 @@ import { useEffect, useMemo } from 'react';
 import { selectHostOrders } from 'selectors';
 import { getHostLounge } from 'slices/dashboard/dashboard.saga';
 import { useAppDispatch } from 'store';
-import { AR, columns, transformDashboardData } from './helper';
+import { AR, transformDashboardData } from './helper';
 import style from './index.module.scss';
+const columnHelper = createColumnHelper<MappedHostOrders>();
+export const columns = [
+  columnHelper.accessor('buyer', {
+    header: 'Name',
+    cell: (info) => info.getValue(),
+  }),
+  columnHelper.accessor('orderName', {
+    cell: (info) => <i>{info.getValue()}</i>,
+    header: () => 'Order',
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.accessor('amount', {
+    cell: (info) => <i>{info.getValue()}</i>,
+    header: () => 'Amount',
+  }),
+  columnHelper.accessor('price', {
+    header: () => 'Price',
+    cell: (info) => info.getValue().display,
+  }),
+  columnHelper.accessor('finalPrice', {
+    header: 'Final Price',
+    cell: (info) => info.getValue(),
+  }),
+  columnHelper.accessor('paidStatus', {
+    header: 'Status',
+    cell: (info) =>
+      info.getValue() ? (
+        <Tag
+          size={'md'}
+          borderRadius="full"
+          variant="solid"
+          color="#10892A"
+          backgroundColor="#EBF9EB"
+        >
+          <TagLabel>Paid</TagLabel>
+        </Tag>
+      ) : (
+        <Tag
+          size={'md'}
+          borderRadius="full"
+          variant="subtle"
+          backgroundColor={'#F9E8D9'}
+          color={'#E35505'}
+          style={{ cursor: 'pointer' }}
+        >
+          <TagLabel>Not paid yet</TagLabel>
+        </Tag>
+      ),
+  }),
+];
 const Dashboard: NextPage = () => {
   const dispatch = useAppDispatch();
   const hostOrders = useAppSelector(selectHostOrders);
