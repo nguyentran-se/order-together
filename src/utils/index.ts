@@ -21,7 +21,9 @@ export const transformObjectToArrayResponse = <T>(
   if (!data) return [];
   return Object.keys(data).reduce((result, currentKey) => {
     const currentObj = data[currentKey as keyof typeof data];
-    const updatedObj = Object.assign(currentObj, { [idKey]: currentKey });
+    //Object.preventExtensions(obj) error
+    // const updatedObj = Object.assign(currentObj, { [idKey]: currentKey });
+    const updatedObj = { ...currentObj, [idKey]: currentKey };
     return result.concat(updatedObj as any);
   }, []);
 };

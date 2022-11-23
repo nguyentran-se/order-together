@@ -44,16 +44,6 @@ const Lounge: NextPage = () => {
     if (isLoggedIn) dispatch(getLounges());
   }, [dispatch, isLoggedIn]);
 
-  useEffect(() => {
-    firebaseCore.loungeRef.on('child_added', (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-        console.log(snapshot.key, snapshot.val());
-      });
-    });
-
-    return () => {};
-  }, []);
-
   const onCreateLoungeSucceed = () => {
     setTableCreating({
       isLoading: false,
@@ -146,7 +136,6 @@ const Lounge: NextPage = () => {
             {lounge.map((table) => {
               return (
                 <Flex key={table.lid} marginBottom={20} flexBasis="30%" justifyContent="flex-start">
-                  {/* <h4>{table.hostName}</h4> */}
                   <LoungeTable table={table}></LoungeTable>
                 </Flex>
               );

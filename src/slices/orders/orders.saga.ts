@@ -34,6 +34,8 @@ function* handleCreateOrders(action: PayloadAction<any>): Generator<any, any, an
           ...buyerInfo,
           uid,
         },
+        createdTimestamp: new Date().getTime(),
+        paidStatus: false,
       };
       return call(orderApi.createOrders, submittedOrderData);
     }),
@@ -45,7 +47,7 @@ function* handleCreateOrders(action: PayloadAction<any>): Generator<any, any, an
 
 function* handleCreateLoungeOrder(orderIdsResponse: { name: string }[], loungeIds: string[]) {
   if (!isEmpty(orderIdsResponse)) {
-    const orderIds = orderIdsResponse.map((r: any) => r.name);
+    const orderIds = orderIdsResponse.map((r) => r.name);
     yield all(
       loungeIds.map((lid, index) => {
         const oid = orderIds[index];

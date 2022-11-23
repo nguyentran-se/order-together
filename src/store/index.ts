@@ -13,7 +13,7 @@ const store = configureStore({
     getDefaultMiddleware({
       thunk: false,
       serializableCheck: {
-        ignoredActions: ['auth/loginWithSlack'],
+        ignoredActions: ['auth/loginWithSlack', 'orders/createOrders'],
       },
     }).concat(middlewares),
   devTools: true,

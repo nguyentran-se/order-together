@@ -47,9 +47,7 @@ function HeaderBar({ isSidebarExpanded }: any) {
             // transition: 'left .2s ease-out',
             // }}
           >
-            <Box p="20px">
-              <Text fontSize="32px">{router.pathname}</Text>
-            </Box>
+            <Box p="20px">{/* <Text fontSize="32px">{router.pathname}</Text> */}</Box>
             <Box>
               <Flex>
                 <Box>
@@ -74,7 +72,7 @@ function HeaderBar({ isSidebarExpanded }: any) {
                     borderRadius="50px"
                   >
                     <Link href={''}>
-                      <a>{avatar(userProfile.picture as string)}</a>
+                      <span>{avatar(userProfile.picture as string)}</span>
                     </Link>
                   </MenuButton>
                   <MenuList>

@@ -69,10 +69,10 @@ function Sidebar({ isSidebarExpanded, setIsSidebarExpanded }: any) {
                   }`}
                   colorScheme="blue"
                 >
-                  <a>
+                  <span>
                     <FontAwesomeIcon icon={faHouse} />
                     {isSidebarExpanded ? <span>Dashboard</span> : ''}
-                  </a>
+                  </span>
                 </Button>
               </Link>
               <Link href={'/orders'}>
@@ -82,10 +82,10 @@ function Sidebar({ isSidebarExpanded, setIsSidebarExpanded }: any) {
                   }`}
                   colorScheme="blue"
                 >
-                  <a>
+                  <span>
                     <FontAwesomeIcon icon={faCartShopping} />
                     {isSidebarExpanded ? <span>My orders</span> : ''}
-                  </a>
+                  </span>
                 </Button>
               </Link>
             </Flex>
@@ -106,10 +106,10 @@ function Sidebar({ isSidebarExpanded, setIsSidebarExpanded }: any) {
                   }`}
                   colorScheme="blue"
                 >
-                  <a>
+                  <span>
                     <FontAwesomeIcon icon={faLandmark} />
                     {isSidebarExpanded ? <span>Food Lounge</span> : ''}
-                  </a>
+                  </span>
                 </Button>
               </Link>
               <Link href={''}>
@@ -119,10 +119,10 @@ function Sidebar({ isSidebarExpanded, setIsSidebarExpanded }: any) {
                   }`}
                   colorScheme="blue"
                 >
-                  <a>
+                  <span>
                     <FontAwesomeIcon icon={faHeart} />
                     {isSidebarExpanded ? <span>Favorites</span> : ''}
-                  </a>
+                  </span>
                 </Button>
               </Link>
             </Flex>

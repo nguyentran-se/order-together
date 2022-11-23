@@ -26,16 +26,22 @@ const Orders: NextPage = () => {
       </Head>
       <div>
         {confirmedOrders.length > 0 ? (
-          confirmedOrders.map((confirmedOrder: any) => {
+          confirmedOrders.map((confirmedOrder: any, index: number) => {
             console.log(confirmedOrders);
             return (
-              <>
-                <Flex flexDirection="column">
-                  {Object.values(confirmedOrder.confirmed).map((order, id) => {
-                    return <CardItem key={id} data={order} isInCart tableId={confirmedOrder.oid} />;
-                  })}
-                </Flex>
-              </>
+              <Flex flexDirection="column" key={index}>
+                {Object.values(confirmedOrder.confirmed).map((order, id) => {
+                  return (
+                    <CardItem
+                      key={id}
+                      data={order}
+                      isInCart
+                      tableId={confirmedOrder.oid}
+                      onConfirmDelete={() => {}}
+                    />
+                  );
+                })}
+              </Flex>
             );
           })
         ) : (
